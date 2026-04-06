@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elite Suites Patong — Luxury Suites, Patong Beach, Phuket</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --wood:       #8B6F47;
+  --wood-dark:  #6B5234;
+  --wood-light: #B8966A;
+  --beige:      #F5EFE4;
+  --beige-mid:  #EDE3D1;
+  --beige-deep: #D9CBAF;
+  --ivory:      #FDFAF5;
+  --white:      #FFFFFF;
+  --charcoal:   #2A2319;
+  --brown-text: #4A3728;
+  --muted:      #8C7B68;
+  --rule:       rgba(139,111,71,0.18);
+  --shadow-sm:  0 2px 12px rgba(74,55,40,0.08);
+  --shadow-md:  0 8px 40px rgba(74,55,40,0.12);
+  --shadow-lg:  0 20px 80px rgba(74,55,40,0.16);
+  --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Montserrat',sans-serif;background:var(--ivory);color:var(--brown-text);font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,.serif{font-family:'Cormorant Garamond',serif}
+a{text-decoration:none;color:inherit}
+img{display:block;width:100%;height:100%;object-fit:cover}
+
+/* ── UTILITY ── */
+.label{font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:var(--wood);font-weight:500;font-family:'Montserrat',sans-serif}
+.rule-center{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.rule-center::before,.rule-center::after{content:'';flex:1;height:1px;background:var(--rule)}
+.container{max-width:1240px;margin:0 auto;padding:0 40px}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--wood);color:var(--ivory);padding:14px 36px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-family:'Montserrat',sans-serif;font-weight:500;transition:var(--transition);border:none;cursor:pointer}
+.btn-primary:hover{background:var(--wood-dark)}
+.btn-outline{display:inline-flex;align-items:center;gap:10px;background:transparent;color:var(--wood);border:1px solid var(--wood);padding:13px 32px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-family:'Montserrat',sans-serif;font-weight:500;transition:var(--transition);cursor:pointer}
+.btn-outline:hover{background:var(--wood);color:var(--ivory)}
+svg.icon{flex-shrink:0;stroke-linecap:round;stroke-linejoin:round}
+
+/* ── BANNERS ── */
+#ai-banner{display:none;background:var(--wood-dark);color:var(--beige-mid);text-align:center;padding:11px 20px;font-size:11px;letter-spacing:.06em}
+#ai-banner strong{color:var(--beige)}
+#context-banner{display:none;background:var(--beige-mid);border-bottom:1px solid var(--beige-deep);padding:12px 20px;text-align:center;font-size:11px;letter-spacing:.05em;color:var(--wood-dark)}
+#promo-banner{display:none;background:var(--wood);color:var(--beige);text-align:center;padding:11px;font-size:11px;font-weight:500;letter-spacing:.05em}
+#promo-banner code{background:rgba(255,255,255,.15);padding:2px 10px;font-family:monospace;letter-spacing:.15em}
+
+/* ── NAV ── */
+#nav{position:fixed;top:0;width:100%;z-index:900;padding:22px 0;transition:var(--transition)}
+#nav.solid{background:rgba(253,250,245,.97);backdrop-filter:blur(12px);padding:14px 0;box-shadow:var(--shadow-sm);border-bottom:1px solid var(--rule)}
+.nav-inner{max-width:1240px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:400;color:var(--white);letter-spacing:.08em;transition:color .3s}
+#nav.solid .nav-logo{color:var(--charcoal)}
+.nav-logo span{color:var(--wood-light)}
+#nav.solid .nav-logo span{color:var(--wood)}
+.nav-links{display:flex;align-items:center;gap:34px;list-style:none}
+.nav-links a{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.8);font-weight:500;transition:color .3s}
+#nav.solid .nav-links a{color:var(--muted)}
+.nav-links a:hover{color:var(--wood-light)}
+#nav.solid .nav-links a:hover{color:var(--wood)}
+.nav-cta{background:var(--wood)!important;color:var(--ivory)!important;padding:10px 24px;font-size:10px!important;letter-spacing:.18em!important;font-weight:500!important;transition:background .3s!important}
+.nav-cta:hover{background:var(--wood-dark)!important}
+
+/* ── HERO ── */
+.hero{height:100vh;min-height:680px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('images/hero-bg.jpg') center/cover no-repeat}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,18,10,.55) 0%,rgba(26,18,10,.35) 50%,rgba(26,18,10,.65) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;color:var(--white);padding:0 20px;animation:fadeUp .9s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.hero-eyebrow{font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:var(--beige-deep);display:block;margin-bottom:22px;font-family:'Montserrat',sans-serif;font-weight:400}
+.hero h1{font-size:clamp(3rem,6.5vw,6rem);font-weight:300;line-height:1.05;margin-bottom:18px;color:var(--white)}
+.hero h1 em{font-style:italic;color:var(--beige-deep)}
+.hero-sub{font-size:clamp(.85rem,1.4vw,1rem);color:rgba(255,255,255,.65);letter-spacing:.06em;margin-bottom:48px;font-weight:300}
+.hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.hero-stats{position:absolute;bottom:0;left:0;right:0;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.12);background:rgba(26,18,10,.55);backdrop-filter:blur(8px)}
+.hero-stat{padding:22px 20px;text-align:center;border-right:1px solid rgba(255,255,255,.1)}
+.hero-stat:last-child{border-right:none}
+.hero-stat strong{display:block;font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;color:var(--beige-deep);line-height:1}
+.hero-stat span{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:4px;display:block}
+
+/* ── CONTEXT SPOTLIGHT ── */
+#context-spotlight{display:none;background:var(--white);border-bottom:1px solid var(--rule)}
+.spotlight-grid{display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+.spotlight-left{padding:60px 60px 60px 0}
+.spotlight-right{background:var(--beige);padding:60px}
+.spotlight-points{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:24px}
+.spotlight-points li{display:flex;align-items:flex-start;gap:12px;font-size:.875rem;line-height:1.6;color:var(--brown-text)}
+.spotlight-points li svg{flex-shrink:0;margin-top:2px}
+.nearby-note{margin-top:24px;padding:16px 20px;background:var(--beige-mid);border-left:2px solid var(--wood);font-size:.8rem;color:var(--muted);line-height:1.7}
+
+/* ── SECTION BASE ── */
+section{padding:100px 0}
+.section-head{text-align:center;margin-bottom:64px}
+.section-head h2{font-size:clamp(2rem,3.5vw,3rem);font-weight:300;color:var(--charcoal);margin:14px 0 16px;line-height:1.15}
+.section-head h2 em{font-style:italic;color:var(--wood)}
+.section-head p{color:var(--muted);font-size:.9rem;line-height:1.8;max-width:540px;margin:0 auto}
+
+/* ── ROOMS ── */
+.rooms-section{background:var(--beige)}
+.rooms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.room-card{position:relative;overflow:hidden;background:var(--charcoal);aspect-ratio:3/2;cursor:pointer}
+.room-card:first-child{grid-column:span 2;aspect-ratio:auto;min-height:360px}
+.room-card:nth-child(5){grid-column:span 2;min-height:300px}
+/* Single-image behaviour preserved */
+.room-img{transition:transform .7s var(--transition),opacity .4s}
+.room-card:hover .room-img{transform:scale(1.06);opacity:.55}
+/* ── Multi-image carousel ── */
+.room-slides{position:absolute;inset:0}
+.room-slide{position:absolute;inset:0;opacity:0;transition:opacity .6s ease}
+.room-slide.active{opacity:1}
+.room-slide img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--transition)}
+.room-card:hover .room-slide.active img{transform:scale(1.06)}
+/* Carousel arrows */
+.room-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:4;background:rgba(26,18,10,.45);border:none;color:var(--white);width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .3s,background .3s;backdrop-filter:blur(4px)}
+.room-arrow:hover{background:rgba(26,18,10,.75)}
+.room-arrow.prev{left:10px}
+.room-arrow.next{right:10px}
+.room-card:hover .room-arrow{opacity:1}
+/* Dot indicators */
+.room-dots{position:absolute;bottom:60px;left:0;right:0;display:flex;justify-content:center;gap:5px;z-index:4;opacity:0;transition:opacity .3s}
+.room-card:hover .room-dots{opacity:1}
+.room-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.35);border:none;cursor:pointer;padding:0;transition:background .3s,transform .3s}
+.room-dot.active{background:var(--white);transform:scale(1.3)}
+/* Image counter badge */
+.room-img-count{position:absolute;top:16px;right:16px;background:rgba(26,18,10,.55);color:rgba(255,255,255,.8);font-size:8px;letter-spacing:.12em;padding:4px 8px;font-family:'Montserrat',sans-serif;backdrop-filter:blur(4px);z-index:4}
+.room-badge{position:absolute;top:16px;left:16px;background:var(--wood);color:var(--ivory);font-size:9px;letter-spacing:.2em;text-transform:uppercase;padding:5px 12px;font-family:'Montserrat',sans-serif;font-weight:500}
+.room-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,18,10,.95) 0%,rgba(26,18,10,.3) 55%,transparent 100%);transition:opacity .4s}
+.room-info{position:absolute;bottom:0;left:0;right:0;padding:28px 30px;transform:translateY(8px);transition:transform .4s}
+.room-card:hover .room-info{transform:translateY(0)}
+.room-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;color:var(--white);margin-bottom:4px}
+.room-meta{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--beige-deep);margin-bottom:16px}
+.room-actions{display:flex;gap:10px;opacity:0;transition:opacity .3s .1s}
+.room-card:hover .room-actions{opacity:1}
+.room-btn-sm{font-size:9px;letter-spacing:.18em;text-transform:uppercase;font-family:'Montserrat',sans-serif;font-weight:500;padding:9px 18px;border:none;cursor:pointer;transition:var(--transition)}
+.room-btn-explore{background:rgba(255,255,255,.15);color:var(--white);border:1px solid rgba(255,255,255,.3)}
+.room-btn-explore:hover{background:rgba(255,255,255,.25)}
+.room-btn-book{background:var(--wood);color:var(--ivory)}
+.room-btn-book:hover{background:var(--wood-dark)}
+
+/* ── PRICE BADGE ── */
+#price-badge{position:fixed;bottom:32px;right:32px;z-index:800;display:none;flex-direction:column;align-items:flex-end;gap:0;animation:slideRight .5s cubic-bezier(.34,1.56,.64,1) both}
+@keyframes slideRight{from{opacity:0;transform:translateX(50px)}to{opacity:1;transform:translateX(0)}}
+#price-panel{display:none;width:360px;background:var(--ivory);border:1px solid var(--beige-deep);box-shadow:var(--shadow-lg)}
+.panel-head{background:var(--wood);padding:20px 24px}
+.panel-head h4{font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:4px;font-family:'Montserrat',sans-serif}
+.panel-head p{color:var(--beige);font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400}
+.price-table{width:100%;border-collapse:collapse}
+.price-table td{padding:12px 22px;border-bottom:1px solid var(--rule);font-size:.82rem}
+.price-table tr:last-child td{border-bottom:none}
+.price-table .plat{color:var(--muted)}
+.price-table .pval{text-align:right;color:var(--charcoal);font-weight:500}
+.price-table .pdiff{text-align:right;font-size:.72rem;color:#c0392b}
+.price-table tr.direct{background:rgba(139,111,71,.07)}
+.price-table tr.direct .plat{color:var(--wood-dark);font-weight:500}
+.price-table tr.direct .pval{color:var(--wood-dark)}
+.price-table tr.direct .pdiff{color:#27ae60;font-size:.7rem}
+.panel-cta-link{display:block;background:var(--wood);color:var(--ivory);text-align:center;padding:14px;font-size:9px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;font-family:'Montserrat',sans-serif;transition:background .3s}
+.panel-cta-link:hover{background:var(--wood-dark)}
+.panel-note{padding:9px;text-align:center;font-size:9px;letter-spacing:.08em;color:var(--muted);border-top:1px solid var(--rule)}
+#price-trigger{display:flex;align-items:center;gap:12px;background:var(--wood);color:var(--ivory);border:none;padding:14px 22px;font-size:9px;letter-spacing:.18em;text-transform:uppercase;font-family:'Montserrat',sans-serif;font-weight:500;cursor:pointer;box-shadow:var(--shadow-md);transition:background .3s;width:100%}
+#price-trigger:hover{background:var(--wood-dark)}
+.pulse-dot{width:7px;height:7px;background:#6dbf8b;border-radius:50%;flex-shrink:0;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(109,191,139,.5)}50%{box-shadow:0 0 0 6px rgba(109,191,139,0)}}
+
+/* ── ABOUT ── */
+.about-section{background:var(--ivory)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center}
+.about-imgs{position:relative;height:580px}
+.img-main{position:absolute;top:0;left:0;width:78%;height:82%;object-fit:cover;box-shadow:var(--shadow-md)}
+.img-accent{position:absolute;bottom:0;right:0;width:52%;height:52%;object-fit:cover;border:8px solid var(--ivory);box-shadow:var(--shadow-md)}
+.img-ornament{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:80px;height:80px;border:1px solid var(--beige-deep);border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--ivory)}
+.about-text .label{margin-bottom:14px;display:block}
+.about-text h2{font-size:clamp(2rem,3vw,2.8rem);font-weight:300;line-height:1.2;margin-bottom:24px;color:var(--charcoal)}
+.about-text p{color:var(--muted);font-size:.9rem;line-height:1.9;margin-bottom:16px}
+.about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:40px;border:1px solid var(--rule)}
+.astat{padding:22px 20px;text-align:center;border-right:1px solid var(--rule)}
+.astat:last-child{border-right:none}
+.astat strong{display:block;font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:400;color:var(--wood)}
+.astat span{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:4px;display:block}
+
+/* ── FACILITIES ── */
+.facilities-section{background:var(--beige-mid)}
+.fac-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:0;border:1px solid var(--rule);margin-top:60px}
+.fac-item{padding:32px 16px;text-align:center;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);transition:background var(--transition)}
+.fac-item:hover{background:var(--white)}
+.fac-item:nth-child(6n){border-right:none}
+.fac-icon{width:36px;height:36px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center}
+.fac-name{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);line-height:1.5;font-weight:500}
+.fac-item:hover .fac-name{color:var(--wood)}
+.fac-item:hover svg{stroke:var(--wood)}
+
+/* ── EXPERIENCE ── */
+.exp-section{background:var(--charcoal)}
+.exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.06);margin-top:60px}
+.exp-card{background:var(--charcoal);padding:50px 40px;position:relative;overflow:hidden;transition:background var(--transition)}
+.exp-card:hover{background:#332619}
+.exp-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;color:rgba(139,111,71,.18);position:absolute;top:24px;right:28px;line-height:1}
+.exp-card svg{stroke:var(--wood-light);margin-bottom:20px}
+.exp-card h3{font-size:1.3rem;font-weight:400;color:var(--beige);margin-bottom:12px;font-family:'Cormorant Garamond',serif}
+.exp-card p{font-size:.82rem;color:rgba(255,255,255,.4);line-height:1.85}
+.exp-blockquote{border-left:1px solid var(--wood);padding-left:20px;margin-top:14px;font-style:italic;font-size:.85rem;color:rgba(255,255,255,.35)}
+
+/* ── REVIEWS ── */
+.reviews-section{background:var(--ivory)}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.review-card{padding:36px;border:1px solid var(--rule);background:var(--white);position:relative;transition:box-shadow var(--transition)}
+.review-card:hover{box-shadow:var(--shadow-md)}
+.review-mark{font-family:'Cormorant Garamond',serif;font-size:4.5rem;color:var(--beige-deep);position:absolute;top:-6px;left:24px;line-height:1}
+.review-stars{color:var(--wood-light);font-size:.75rem;letter-spacing:.1em;margin-bottom:14px}
+.review-text{font-size:.875rem;color:var(--muted);line-height:1.8;margin-bottom:20px}
+.review-author{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--wood);font-weight:500}
+.review-source{font-size:.72rem;color:var(--beige-deep);margin-top:3px}
+
+/* ── LOCATION ── */
+.loc-section{background:var(--beige)}
+.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.loc-map{height:420px;background:var(--beige-mid);overflow:hidden;border:1px solid var(--rule)}
+.loc-map iframe{width:100%;height:100%;border:0;filter:sepia(30%) saturate(80%)}
+.loc-item{display:flex;align-items:flex-start;gap:16px;margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid var(--rule)}
+.loc-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.loc-icon{flex-shrink:0;width:40px;height:40px;background:var(--beige-mid);display:flex;align-items:center;justify-content:center;border:1px solid var(--rule)}
+.loc-item h4{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--wood);margin-bottom:6px;font-family:'Montserrat',sans-serif;font-weight:500}
+.loc-item p{font-size:.84rem;color:var(--muted);line-height:1.7}
+.loc-item a{color:var(--wood-dark)}
+.loc-item a:hover{text-decoration:underline}
+
+/* ── EXIT POPUP ── */
+#exit-overlay{position:fixed;inset:0;background:rgba(26,18,10,.88);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(6px)}
+#exit-overlay.open{display:flex;animation:fadeIn .35s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.exit-modal{background:var(--ivory);max-width:580px;width:100%;animation:popIn .4s cubic-bezier(.34,1.4,.64,1) both;overflow:hidden;position:relative}
+@keyframes popIn{from{opacity:0;transform:scale(.92) translateY(16px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.exit-hero{height:180px;background:url('images/exit-popup.jpg') center/cover;position:relative}
+.exit-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,18,10,.4),rgba(26,18,10,.85))}
+.exit-hero-text{position:absolute;bottom:24px;left:32px;z-index:1;color:var(--white)}
+.exit-hero-text h3{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:300;line-height:1.2}
+.exit-hero-text h3 em{font-style:italic;color:var(--beige-deep)}
+.exit-close-btn{position:absolute;top:14px;right:16px;background:none;border:none;color:rgba(255,255,255,.7);font-size:1.2rem;cursor:pointer;z-index:2;line-height:1;padding:4px}
+.exit-close-btn:hover{color:var(--white)}
+.exit-body{padding:28px 32px 32px}
+.exit-sub{font-size:.82rem;color:var(--muted);margin-bottom:22px;line-height:1.6}
+.perks-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:22px}
+.perk{border:1px solid var(--beige-deep);padding:16px;cursor:pointer;transition:var(--transition);position:relative;background:var(--white)}
+.perk:hover{border-color:var(--wood);background:var(--beige)}
+.perk.on{border-color:var(--wood);background:var(--beige)}
+.perk input{display:none}
+.perk-top{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.perk-icon-wrap{width:32px;height:32px;background:var(--beige-mid);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.perk-icon-wrap svg{stroke:var(--wood)}
+.perk-label{font-size:.8rem;font-weight:500;color:var(--charcoal)}
+.perk-desc{font-size:.72rem;color:var(--muted);padding-left:42px;line-height:1.5}
+.perk-check{position:absolute;top:12px;right:12px;width:16px;height:16px;border:1px solid var(--beige-deep);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:var(--transition)}
+.perk.on .perk-check{background:var(--wood);border-color:var(--wood)}
+.perk.on .perk-check::after{content:'';display:block;width:5px;height:3px;border-left:1.5px solid var(--ivory);border-bottom:1.5px solid var(--ivory);transform:rotate(-45deg) translateY(-1px)}
+.email-row{display:flex;gap:0}
+.email-row input{flex:1;background:var(--white);border:1px solid var(--beige-deep);border-right:none;color:var(--charcoal);padding:13px 16px;font-family:'Montserrat',sans-serif;font-size:.82rem;outline:none;transition:border-color .3s}
+.email-row input:focus{border-color:var(--wood)}
+.email-row input::placeholder{color:var(--muted)}
+.email-row button{background:var(--wood);border:none;color:var(--ivory);padding:13px 24px;font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;cursor:pointer;transition:background .3s;white-space:nowrap}
+.email-row button:hover{background:var(--wood-dark)}
+.exit-fine{font-size:.7rem;color:var(--muted);text-align:center;margin-top:10px}
+.exit-skip{display:block;text-align:center;font-size:.72rem;color:var(--beige-deep);cursor:pointer;margin-top:14px;transition:color .3s}
+.exit-skip:hover{color:var(--muted)}
+.exit-success{display:none;text-align:center;padding:48px 32px}
+.exit-success svg{stroke:var(--wood);margin:0 auto 16px}
+.exit-success h4{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:400;color:var(--charcoal);margin-bottom:10px}
+.exit-success p{font-size:.85rem;color:var(--muted);line-height:1.7;margin-bottom:22px}
+.promo-display{background:var(--beige);border:1px dashed var(--wood);padding:16px;font-size:1.1rem;color:var(--wood-dark);letter-spacing:.25em;font-family:monospace}
+
+/* ── FOOTER ── */
+footer{background:var(--charcoal);padding:70px 0 32px}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;padding-bottom:50px;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:32px}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;color:var(--white);margin-bottom:14px}
+.footer-brand span{color:var(--wood-light)}
+.footer-desc{font-size:.8rem;color:rgba(255,255,255,.35);line-height:1.8;margin-bottom:18px}
+.footer-contact a{color:var(--wood-light);font-size:.8rem}
+.footer-h{font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--wood-light);margin-bottom:20px;font-weight:500}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{color:rgba(255,255,255,.4);font-size:.8rem;transition:color .3s}
+.footer-links a:hover{color:var(--wood-light)}
+.footer-bottom{display:flex;justify-content:space-between;font-size:.72rem;color:rgba(255,255,255,.25)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .container{padding:0 24px}
+  .about-grid,.loc-grid,.exp-grid,.reviews-grid,.footer-top{grid-template-columns:1fr}
+  .rooms-grid{grid-template-columns:1fr}
+  .room-card:first-child,.room-card:nth-child(5){grid-column:auto;min-height:260px}
+  .fac-grid{grid-template-columns:repeat(3,1fr)}
+  .fac-item:nth-child(3n){border-right:none}
+  .about-imgs{height:320px}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .spotlight-grid{grid-template-columns:1fr}
+  .spotlight-left{padding:40px 24px}
+  .spotlight-right{padding:32px 24px}
+  section{padding:70px 0}
+  #price-badge{bottom:16px;right:16px}
+  #price-panel{width:300px}
+  .perks-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- BANNERS -->
+<div id="ai-banner"><strong id="ai-source-name">Welcome</strong> — We're glad your AI assistant recommended us. Book direct for the guaranteed best rate.</div>
+<div id="context-banner"><span id="ctx-icon"></span> <span id="ctx-msg"></span></div>
+<div id="promo-banner" id="promo-banner"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo"><span>Elite</span> Suites Patong</a>
+    <ul class="nav-links">
+      <li><a href="#rooms">Suites</a></li>
+      <li><a href="#facilities">Facilities</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#location">Location</a></li>
+      <li><a href="https://www.elitesuitespatong.com/gayaspa">Gaya Spa</a></li>
+      <li><a href="https://hotels.cloudbeds.com/reservation/q4GFCr" target="_blank" class="nav-cta">Book Direct</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <!-- REPLACE: hero background — use a wide landscape shot of the hotel exterior, pool, or beach view (min 1800px wide) -->
+  <div class="hero-bg" style="background-image:url('images/hero-bg.jpg')"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow" id="hero-location">Patong Beach · Phuket, Thailand</span>
+    <h1>Elite Suites<br><em>Patong</em></h1>
+    <p class="hero-sub" id="hero-tagline">Where Comfort Meets Luxury — 650 metres from Patong Beach</p>
+    <div class="hero-actions">
+      <a href="https://hotels.cloudbeds.com/reservation/q4GFCr" target="_blank" class="btn-primary">
+        <svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        Reserve Your Suite
+      </a>
+      <a href="#rooms" class="btn-outline" style="border-color:rgba(255,255,255,.5);color:var(--white)">
+        <svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12h18M13 6l6 6-6 6"/></svg>
+        Explore Suites
+      </a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><strong>294</strong><span>Rooms &amp; Suites</span></div>
+    <div class="hero-stat"><strong>4.1★</strong><span>Google Rating</span></div>
+    <div class="hero-stat"><strong>24/7</strong><span>Reception</span></div>
+    <div class="hero-stat"><strong>650m</strong><span>To the Beach</span></div>
+  </div>
+</section>
+
+<!-- CONTEXT SPOTLIGHT -->
+<div id="context-spotlight">
+  <div class="container">
+    <div class="spotlight-grid" id="spotlight-grid"></div>
+  </div>
+</div>
+
+<!-- ROOMS -->
+<section class="rooms-section" id="rooms">
+  <div class="container">
+    <div class="section-head">
+      <div class="rule-center"><span class="label" id="rooms-label">Explore</span></div>
+      <h2 id="rooms-title">Our Rooms &amp; <em>Suites</em></h2>
+      <p id="rooms-sub">From 42 to 85 sqm — every suite features a private balcony, separate lounge, and curated amenities. Select a suite to compare live rates.</p>
+    </div>
+    <div class="rooms-grid" id="rooms-grid"></div>
+  </div>
+</section>
+
+<!-- PRICE BADGE -->
+<div id="price-badge">
+  <div id="price-panel">
+    <div class="panel-head">
+      <h4>Best Price Guarantee</h4>
+      <p id="panel-room-name">—</p>
+    </div>
+    <table class="price-table" id="price-table"></table>
+    <a href="https://hotels.cloudbeds.com/reservation/q4GFCr" target="_blank" class="panel-cta-link">Book Direct — Save Now</a>
+    <p class="panel-note">Live rates via Cloudbeds · Updated in real time</p>
+  </div>
+  <button id="price-trigger" onclick="togglePanel()">
+    <div class="pulse-dot"></div>
+    We're cheaper · Compare rates
+    <svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-left:auto"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+</div>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-imgs">
+        <!-- REPLACE: about-main — pool or lobby photo, landscape orientation recommended -->
+        <img class="img-main" src="images/about-main.jpg" alt="Elite Suites Pool" style="position:absolute;top:0;left:0;width:78%;height:82%;object-fit:cover">
+        <!-- REPLACE: about-accent — suite interior or balcony view, portrait orientation recommended -->
+        <img class="img-accent" src="images/about-accent.jpg" alt="Elite Suites Room" style="position:absolute;bottom:0;right:0;width:52%;height:52%;object-fit:cover;border:8px solid var(--ivory)">
+        <div class="img-ornament">
+          <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="1">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+      </div>
+      <div class="about-text">
+        <span class="label" style="display:block;margin-bottom:14px">The Experience</span>
+        <div class="rule-center" style="justify-content:flex-start;margin-bottom:0"><span style="font-size:10px;letter-spacing:.35em;color:var(--wood)"></span></div>
+        <h2 style="font-size:clamp(1.9rem,3vw,2.7rem);font-weight:300;color:var(--charcoal);margin-bottom:24px;line-height:1.2">Where Patong Meets<br><em>Refined Living</em></h2>
+        <p>Situated just 650 metres from Patong Beach and 900 metres from Bangla Road, Elite Suites Patong — by Bauman Residence — offers spacious suites from 42 to 85 sqm, each designed with private balconies, separate lounges, and five-star amenities.</p>
+        <p>Relax at our lagoon pool with Jacuzzi, rejuvenate at Gaya Wellness & Spa, dine at our restaurant, or explore Phuket's finest attractions from our unbeatable central location.</p>
+        <div class="about-stats">
+          <div class="astat"><strong>650m</strong><span>To Patong Beach</span></div>
+          <div class="astat"><strong>42–85</strong><span>sqm Suites</span></div>
+          <div class="astat"><strong>34km</strong><span>To Airport</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACILITIES -->
+<section class="facilities-section" id="facilities">
+  <div class="container">
+    <div class="section-head">
+      <div class="rule-center"><span class="label">Why Choose Us</span></div>
+      <h2>Most Popular <em>Facilities</em></h2>
+    </div>
+    <div class="fac-grid">
+      <!-- SVG icon set — Lucide-style, all hand-crafted -->
+      <div class="fac-item">
+        <div class="fac-icon"><svg class="icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="1.3"><path d="M2 12h20M2 12c0 5.523 4.477 10 10 10S22 17.523 22 12M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10"/><path d="M8 12c0 2.5 1.5 4 4 4s4-1.5 4-4-1.5-4-4-4-4 1.5-4 4z"/></svg></div>
+        <div class="fac-name">Outdoor Pool<br>&amp; Jacuzzi</div>
+      </div>
+      <div class="fac-item">
+        <div class="fac-icon"><svg class="icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="1.3"><path d="M12 2a5 5 0 0 1 5 5c0 3-5 9-5 9S7 10 7 7a5 5 0 0 1 5-5z"/><circle cx="12" cy="7" r="2"/><path d="M4 22c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+        <div class="fac-name">Gaya Wellness<br>&amp; Spa</div>
+      </div>
+      <div class="fac-item">
+        <div class="fac-icon"><svg class="icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="1.3"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></div>
+        <div class="fac-name">Restaurant<br>&amp; Pool Bar</div>
+      </div>
+      <div class="fac-item">
+        <div class="fac-icon"><svg class="icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="1.3"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <div class="fac-name">Free WiFi<br>Throughout</div>
+      </div>
+      <div class="fac-item">
+        <div class="fac-icon"><svg class="icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="1.3"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <div class="fac-name">24/7 Reception<br>&amp; Security</div>
+      </div>
+      <div class="fac-item">
+        <div class="fac-icon"><svg class="icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="1.3"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div class="fac-name">Free Private<br>Parking</div>
+      </div>
+      <div class="fac-item">
+        <div class="fac-icon"><svg class="icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="1.3"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="fac-name">Kids Club<br>&amp; Family Rooms</div>
+      </div>
+      <div class="fac-item">
+        <div class="fac-icon"><svg class="icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="1.3"><path d="M6.5 6.5h.01M17.5 6.5h.01M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg></div>
+        <div class="fac-name">Fitness<br>Centre</div>
+      </div>
+      <div class="fac-item">
+        <div class="fac-icon"><svg class="icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="1.3"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3M9 21h10a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2z"/></svg></div>
+        <div class="fac-name">Conference<br>Hall</div>
+      </div>
+      <div class="fac-item">
+        <div class="fac-icon"><svg class="icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="1.3"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <div class="fac-name">Room<br>Service</div>
+      </div>
+      <div class="fac-item">
+        <div class="fac-icon"><svg class="icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="1.3"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M12 12v4M10 14h4"/></svg></div>
+        <div class="fac-name">Airport<br>Shuttle</div>
+      </div>
+      <div class="fac-item">
+        <div class="fac-icon"><svg class="icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="1.3"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+        <div class="fac-name">Tour Desk<br>&amp; Concierge</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="exp-section">
+  <div class="container">
+    <div class="section-head" style="text-align:left">
+      <div style="margin-bottom:14px"><span class="label" style="color:var(--wood-light)">The Pleasure of Luxury</span></div>
+      <h2 style="color:var(--beige);font-size:clamp(2rem,3.5vw,3rem);font-weight:300">Popular <em style="color:var(--wood-light)">Experiences</em></h2>
+    </div>
+    <div class="exp-grid">
+      <div class="exp-card">
+        <span class="exp-num">01</span>
+        <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--wood-light)" stroke-width="1.2"><path d="M2 12h20M2 12c0 5.523 4.477 10 10 10S22 17.523 22 12M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10"/><circle cx="12" cy="12" r="3"/></svg>
+        <h3>Outdoor Pool &amp; Jacuzzi</h3>
+        <p>Dive into relaxation at our lagoon-style pool with built-in Jacuzzi, surrounded by tropical gardens and sunbeds.</p>
+        <p class="exp-blockquote">Where relaxation takes the plunge</p>
+      </div>
+      <div class="exp-card">
+        <span class="exp-num">02</span>
+        <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--wood-light)" stroke-width="1.2"><path d="M12 2a5 5 0 0 1 5 5c0 3-5 9-5 9S7 10 7 7a5 5 0 0 1 5-5z"/><path d="M4 22c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        <h3>Gaya Wellness &amp; Spa</h3>
+        <p>Renew your mind and body with traditional Thai massage, aromatherapy, and tailored wellness programmes.</p>
+        <p class="exp-blockquote">Renew, indulge, rejuvenate</p>
+      </div>
+      <div class="exp-card">
+        <span class="exp-num">03</span>
+        <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--wood-light)" stroke-width="1.2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        <h3>Restaurant &amp; Dining</h3>
+        <p>Savour the moment at our restaurant where every dish tells a story — from fresh Thai cuisine to international favourites.</p>
+        <p class="exp-blockquote">Flavours that unite, every dish a delight</p>
+      </div>
+      <div class="exp-card">
+        <span class="exp-num">04</span>
+        <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--wood-light)" stroke-width="1.2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+        <h3>Fitness Centre &amp; Kids Club</h3>
+        <p>Stay active in our well-equipped gym or let the little ones enjoy supervised activities at the Kids Club.</p>
+        <p class="exp-blockquote">Empowering every member of your family</p>
+      </div>
+      <div class="exp-card">
+        <span class="exp-num">05</span>
+        <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--wood-light)" stroke-width="1.2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        <h3>Convention Hall</h3>
+        <p>Where visions unfold and ideas take centre stage — our fully equipped conference facility accommodates all event sizes.</p>
+        <p class="exp-blockquote">Ideas that take centre stage</p>
+      </div>
+      <div class="exp-card" style="background:rgba(139,111,71,.12)">
+        <span class="exp-num" style="color:rgba(184,150,106,.25)">06</span>
+        <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--wood-light)" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        <h3>Book Direct — Best Rate</h3>
+        <p>Reserve directly with us and receive exclusive perks unavailable on any OTA platform. Guaranteed lowest rate, every time.</p>
+        <a href="https://hotels.cloudbeds.com/reservation/q4GFCr" target="_blank" style="display:inline-flex;align-items:center;gap:8px;margin-top:18px;color:var(--wood-light);font-size:9px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;font-family:'Montserrat',sans-serif">Reserve Now
+          <svg class="icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="rule-center"><span class="label">Guest Stories</span></div>
+      <h2>What Our Guests <em>Say</em></h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-mark">"</div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">We had a wonderful experience staying at this hotel. The rooms were very spacious and the staff were very friendly. Would definitely recommend this place for a stay in Phuket.</p>
+        <div class="review-author">Liya</div>
+        <div class="review-source">Google Review</div>
+      </div>
+      <div class="review-card">
+        <div class="review-mark">"</div>
+        <div class="review-stars">★★★★☆</div>
+        <p class="review-text">Very close to all the main attractions, extremely value for money. One of the best places I have stayed in Phuket. The staff are so friendly, they always have a smile on their face.</p>
+        <div class="review-author">Mithun Nataraj</div>
+        <div class="review-source">Google Review</div>
+      </div>
+      <div class="review-card">
+        <div class="review-mark">"</div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">The pool area is stunning and the suites are huge compared to other hotels at this price. Loved the Gaya Spa — an absolute highlight of our Phuket trip. We will return!</p>
+        <div class="review-author">Maria K.</div>
+        <div class="review-source">Booking.com</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="loc-section" id="location">
+  <div class="container">
+    <div class="section-head">
+      <div class="rule-center"><span class="label">Find Us</span></div>
+      <h2>Perfectly Located in <em>Patong</em></h2>
+    </div>
+    <div class="loc-grid">
+      <div class="loc-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.3!2d98.2914!3d7.8963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30503b4a1e226fcb%3A0x1!2sElite+Suites+Patong!5e0!3m2!1sen!2sth!4v1" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div>
+        <div class="loc-item">
+          <div class="loc-icon">
+            <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <h4>Address</h4>
+            <p>201 Phangmuang Sai Gor Road<br>Pa Tong, Kathu District<br>Phuket 83150, Thailand</p>
+          </div>
+        </div>
+        <div class="loc-item">
+          <div class="loc-icon">
+            <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div>
+            <h4>Nearby</h4>
+            <p>650m · Patong Beach<br>900m · Bangla Road &amp; Nightlife<br>1.2km · Jungceylon Shopping Mall<br>34km · Phuket International Airport</p>
+          </div>
+        </div>
+        <div class="loc-item">
+          <div class="loc-icon">
+            <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <h4>Contact</h4>
+            <p><a href="tel:+660805428245">+66 (0) 80 542 8245</a><br>
+            <a href="mailto:reservations@elitesuitespatong.com">reservations@elitesuitespatong.com</a><br>
+            <a href="mailto:reception@elitesuitespatong.com">reception@elitesuitespatong.com</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand"><span>Elite</span> Suites Patong</div>
+        <p class="footer-desc">Luxury suites in the heart of Patong Beach, Phuket. 294 spacious rooms, world-class amenities, and Thai hospitality at its finest — by Bauman Residence.</p>
+        <div class="footer-contact">
+          <a href="tel:+660805428245">+66 (0) 80 542 8245</a><br>
+          <a href="mailto:reservations@elitesuitespatong.com">reservations@elitesuitespatong.com</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-h">Navigate</p>
+        <ul class="footer-links">
+          <li><a href="#rooms">Rooms &amp; Suites</a></li>
+          <li><a href="#facilities">Facilities</a></li>
+          <li><a href="https://www.elitesuitespatong.com/gayaspa">Gaya Wellness Spa</a></li>
+          <li><a href="https://www.elitesuitespatong.com/attraction">Attractions</a></li>
+          <li><a href="https://www.elitesuitespatong.com/gallery">Gallery</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-h">Book Direct</p>
+        <ul class="footer-links">
+          <li><a href="https://hotels.cloudbeds.com/reservation/q4GFCr">Best Rate Guarantee</a></li>
+          <li><a href="https://hotels.cloudbeds.com/reservation/q4GFCr">Check Availability</a></li>
+          <li><a href="https://www.elitesuitespatong.com/contact">Contact Us</a></li>
+          <li><a href="https://www.elitesuitespatong.com/sitemap.xml">Sitemap</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-h">Find Us</p>
+        <ul class="footer-links">
+          <li><a href="#">201 Phangmuang Sai Gor Road</a></li>
+          <li><a href="#">Pa Tong, Kathu District</a></li>
+          <li><a href="#">Phuket 83150, Thailand</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Elite Suites Patong by Bauman Residence. All rights reserved.</span>
+      <span>elitesuitespatong.com</span>
+    </div>
+  </div>
+</footer>
+
+<!-- EXIT INTENT POPUP -->
+<div id="exit-overlay">
+  <div class="exit-modal">
+    <!-- REPLACE: exit-popup image — a glamorous room or pool shot works well here -->
+    <div class="exit-hero" style="background-image:url('images/exit-popup.jpg')">
+      <button class="exit-close-btn" onclick="closeExit()">✕</button>
+      <div class="exit-hero-text">
+        <h3>Wait — before<br>you <em>leave…</em></h3>
+      </div>
+    </div>
+    <div id="exit-body" class="exit-body">
+      <p class="exit-sub">Book direct and claim an exclusive perk tailored to your stay. Choose one:</p>
+      <div class="perks-grid">
+        <label class="perk" onclick="pickPerk(this)">
+          <input type="radio" name="perk" value="10off">
+          <div class="perk-top">
+            <div class="perk-icon-wrap"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+            <span class="perk-label">10% Off Your Stay</span>
+          </div>
+          <p class="perk-desc">Discount applied via promo code at checkout</p>
+          <div class="perk-check"></div>
+        </label>
+        <label class="perk" onclick="pickPerk(this)">
+          <input type="radio" name="perk" value="breakfast">
+          <div class="perk-top">
+            <div class="perk-icon-wrap"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="1.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+            <span class="perk-label">Free Breakfast for 2</span>
+          </div>
+          <p class="perk-desc">Every morning of your stay, included</p>
+          <div class="perk-check"></div>
+        </label>
+        <label class="perk" onclick="pickPerk(this)">
+          <input type="radio" name="perk" value="cocktail">
+          <div class="perk-top">
+            <div class="perk-icon-wrap"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="1.5"><path d="M8 22h8M12 11v11M2 2l10 11L22 2H2z"/></svg></div>
+            <span class="perk-label">Free Cocktail / Day</span>
+          </div>
+          <p class="perk-desc">One cocktail per day, valid up to 4 nights</p>
+          <div class="perk-check"></div>
+        </label>
+        <label class="perk" onclick="pickPerk(this)">
+          <input type="radio" name="perk" value="extranight">
+          <div class="perk-top">
+            <div class="perk-icon-wrap"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></div>
+            <span class="perk-label">Extra Night Deal</span>
+          </div>
+          <p class="perk-desc">Stay 4 nights, pay for 3 + 10% — extra night added</p>
+          <div class="perk-check"></div>
+        </label>
+      </div>
+      <div class="email-row">
+        <input type="email" id="exit-email" placeholder="Your email address">
+        <button onclick="claimPerk()">Claim My Perk</button>
+      </div>
+      <p class="exit-fine">Your promo code arrives instantly. No spam, unsubscribe anytime.</p>
+      <span class="exit-skip" onclick="closeExit()">No thanks, I'll pay full price</span>
+    </div>
+    <div class="exit-success" id="exit-success">
+      <svg class="icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="1.2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      <h4>Your Perk is Confirmed</h4>
+      <p>We've sent your exclusive code to your inbox. Use it when booking direct to claim your benefit:</p>
+      <div class="promo-display" id="success-code">ESP-XXXX</div>
+      <a href="https://hotels.cloudbeds.com/reservation/q4GFCr" target="_blank" style="display:inline-flex;align-items:center;gap:8px;margin-top:22px;color:var(--wood);font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:500">Book Now
+        <svg class="icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+const BOOK_URL = 'https://hotels.cloudbeds.com/reservation/q4GFCr';
+const SYM = '฿';
+
+const CONFIG = {
+  rooms: [
+    // imgs: array of image paths. Add as many as you like — the card becomes a carousel.
+    // One image = no carousel UI shown. All paths relative to this HTML file.
+    // Recommended size: 900×600px JPG per image.
+    {id:'deluxe-king-city', name:'Deluxe Suite King — City View', size:'42 sqm', dp:2800, bk:3200, ex:3350, ag:3100, ht:3280,
+      imgs:['images/room-deluxe-king-city.jpg']},
+    {id:'deluxe-king-pool', name:'Deluxe Suite King — Pool View', size:'42 sqm', dp:3200, bk:3600, ex:3750, ag:3500, ht:3680,
+      imgs:['images/room-deluxe-king-pool.jpg']},
+    {id:'deluxe-twin-city', name:'Deluxe Suite Twin — City View', size:'42 sqm', dp:2800, bk:3100, ex:3200, ag:3000, ht:3150,
+      imgs:['images/room-deluxe-twin-city.jpg']},
+    {id:'deluxe-twin-pool', name:'Deluxe Suite Twin — Pool View', size:'42 sqm', dp:3200, bk:3500, ex:3600, ag:3400, ht:3550,
+      imgs:['images/room-deluxe-twin-pool.jpg']},
+    {id:'exec-city',        name:'Executive Suite — City View',   size:'55 sqm', dp:4200, bk:4800, ex:5000, ag:4600, ht:4900,
+      imgs:['images/room-exec-city.jpg']},
+    {id:'exec-pool',        name:'Executive Suite — Pool View',   size:'55 sqm', dp:4800, bk:5400, ex:5600, ag:5200, ht:5500,
+      imgs:['images/room-exec-pool.jpg']},
+    {id:'classic-pool',     name:'Classic Suite — Pool Access',   size:'48 sqm', dp:3600, bk:3600, ex:3750, ag:3600, ht:3700,
+      imgs:['images/room-classic-pool.jpg']},
+    {id:'family-city',      name:'Family Suite — City View',      size:'65 sqm', dp:5200, bk:5800, ex:6000, ag:5600, ht:5900,
+      imgs:['images/room-family-city.jpg']},
+    {id:'family-pool',      name:'Family Suite — Pool View',      size:'65 sqm', dp:5800, bk:6500, ex:6800, ag:6300, ht:6600,
+      imgs:['images/room-family-pool.jpg']},
+    {id:'2bed-city',        name:'Two Bedroom Suite — City View', size:'75 sqm', dp:7200, bk:8000, ex:8400, ag:7800, ht:8200,
+      imgs:['images/room-2bed-city.jpg']},
+    {id:'2bed-pool',        name:'Two Bedroom Suite — Pool View', size:'75 sqm', dp:7800, bk:8800, ex:9000, ag:8500, ht:8900,
+      imgs:['images/room-2bed-pool.jpg']},
+    {id:'penthouse',        name:'Penthouse — Private Pool',      size:'85 sqm', dp:12000,bk:13500,ex:14000,ag:13200,ht:13800,
+      imgs:['images/room-penthouse.jpg']},
+  ]
+};
+
+const CONTEXTS = {
+  family:       {icon:'',msg:"We've tailored this page for your family trip — family suites, Kids Club & pool highlighted below.",tagline:"Your Family's Perfect Phuket Base — Kids Club, Family Suites & Pool",rl:'Perfect for Families',rt:'Family-Friendly Suites',rs:'Spacious suites 65–85 sqm with separate sleeping areas, baby cots on request, and direct pool & Kids Club access.',priority:['family-pool','family-city','2bed-pool','2bed-city','penthouse'],sp:{h:'Everything Your Family Needs',pts:['Large swimming pool with Jacuzzi — supervised sunbed area','Kids Club with activities for ages 3–12','Baby cots available on request, complimentary','Family dining — kids menu available on request','Free private parking for your rental car','Just 650m walk to Patong Beach — easy with children'],note:'Family dining nearby: La Gritta, Baan Rim Pa, Patong Beer Garden (5–10 min)'}},
+  halal:        {icon:'',msg:"Assalamu Alaikum — halal dining options and nearby mosque details highlighted for your stay.",tagline:'Halal-Friendly Stay in Patong — Comfortable Suites & Nearby Halal Dining',rl:'Recommended for You',rt:'Your Suite in Patong',rs:'Spacious suites with all amenities. Our team is happy to assist with halal arrangements and nearby mosque directions.',priority:['exec-pool','exec-city','deluxe-king-pool','family-pool'],sp:{h:'Halal-Friendly at Elite Suites',pts:['Masjid Al-Falah Mosque — approx. 10 min by car','Halal restaurants within walking distance (see below)','Bidet / shower in all suite bathrooms','Qibla direction available on request at reception','Restaurant can accommodate halal requests — advise at booking','24/7 reception to assist with any requirements'],note:'Nearby halal dining: Yama Restaurant · Bismillah Restaurant Patong · Muslim Restaurant on Rat-U-Thit Road'}},
+  'indian-food':{icon:'',msg:"Great news — Patong has several excellent Indian restaurants just minutes from the hotel.",tagline:'Authentic Indian Cuisine Minutes Away — Stay at Elite Suites Patong',rl:'Recommended for You',rt:'Your Suite in Patong',rs:'Stay in comfort and explore Patong\'s dining scene including some of Phuket\'s best Indian restaurants, all within easy reach.',priority:['exec-pool','deluxe-king-pool','family-pool','penthouse'],sp:{h:'Indian Food Near Elite Suites',pts:['Shere Punjab — authentic North Indian, 8 min walk','Indian Tadka Restaurant — 10 min walk via Bangla Road area','Curry House Patong — vegetarian-friendly, 12 min walk','Jungceylon food court — Indian stalls, 15 min walk','Our concierge can book restaurant tables for you','Tuk-tuk to Phuket Town\'s Indian quarter — 25 min'],note:'Most Indian restaurants clustered near Rat-U-Thit 200 Pi Road — short walk or ฿60 tuk-tuk from us'}},
+  pool:         {icon:'',msg:"You're in luck — we have one of Patong's largest hotel pools with Jacuzzi, sunbeds & pool bar.",tagline:'Dive In — Lagoon Pool, Jacuzzi & Pool Bar at Elite Suites Patong',rl:'Best Pool Access',rt:'Pool View & Pool Access Suites',rs:'Wake up to pool views or step directly from your suite to the water.',priority:['classic-pool','deluxe-king-pool','deluxe-twin-pool','exec-pool','family-pool','penthouse'],sp:{h:'Our Pool — A Resort Within a Hotel',pts:['Large outdoor swimming pool with Jacuzzi jets','Sunbeds and umbrellas — complimentary for all guests','Pool Bar serving cocktails, smoothies & snacks','Classic Suite — Pool Access: step directly into the pool','Pool open daily (typically 7am–9pm)','Penthouse: private rooftop pool exclusively yours'],note:'Tip: Book a Pool View or Pool Access suite to wake up to the water every morning'}},
+  spa:          {icon:'',msg:"Our award-winning Gaya Wellness & Spa is right here on-site. Relax — no need to leave the hotel.",tagline:'Unwind at Gaya Wellness & Spa — Elite Suites Patong',rl:'Perfect for a Spa Retreat',rt:'Wellness Suites',rs:'Pair your spa experience with a spacious suite. Ask about Spa & Stay packages when booking direct.',priority:['exec-pool','exec-city','penthouse','classic-pool'],sp:{h:'Gaya Wellness & Spa — On-Site',pts:['Traditional Thai massage, aromatherapy & body wraps','Luxury skincare & beauty treatments','Couples massage suites available','Fitness centre adjacent to the spa','Book your treatment at reception or on arrival','Spa & Stay packages available when booking direct'],note:'Mention "Spa & Stay" when booking direct for a complimentary 30-min treatment on stays of 3+ nights'}},
+  beach:        {icon:'',msg:"Patong Beach is just 650 metres away — a gentle 8-minute stroll from your suite.",tagline:'8 Minutes to Patong Beach — The Closest Luxury Suites in Patong',rl:'Closest to the Beach',rt:'Your Beach Base in Patong',rs:'Drop your bags, change, and be on the sand in minutes. One of the best locations in Patong for beach access.',priority:['exec-pool','deluxe-king-pool','penthouse','family-pool'],sp:{h:'Your Beach HQ',pts:['Patong Beach — 650m / 8-minute flat walk','Scooter rental from reception — explore all Phuket','Beach activities: jet ski, parasailing, snorkel tours','Day trips to Phi Phi, James Bond Island & Similan Islands at our tour desk','Sunset walks along the beachfront promenade','Kata, Kamala & Surin beaches within 25 min'],note:'Kata Beach (25 min) · Kamala Beach (15 min) · Surin Beach (20 min) — all by taxi or scooter'}},
+  couple:       {icon:'',msg:"Congratulations — we've highlighted our most romantic suites and experiences for couples.",tagline:'Romance in Phuket — Couples Suites, Spa & Sunset Views',rl:'Most Romantic',rt:'Suites for Couples',rs:'Indulge in spacious pool-view suites, in-room jacuzzis, and sunset balconies — perfect for honeymoons.',priority:['penthouse','exec-pool','deluxe-king-pool','classic-pool'],sp:{h:'A Romantic Phuket Escape',pts:['Honeymoon room decoration available on advance request','Champagne & fruit basket packages — ask when booking','Couples massage at Gaya Wellness & Spa','Penthouse: private pool with panoramic sunset views','Candlelit dinner arrangements via our concierge','Executive suites feature luxurious bathtubs for two'],note:'Romantic dining: Baan Rim Pa (cliff-top Thai fine dining) · La Gritta (Italian, sea view) · Joe\'s Downstairs (Kata, sunset)'}},
+  nightlife:    {icon:'',msg:"Bangla Road is just 900m away. Walk home in 10 minutes and sleep well — whenever you choose.",tagline:'900m from Bangla Road — Sleep In, Then Do It Again',rl:'Party Central Location',rt:'Your Patong Base',rs:'Walk home from Bangla Road in under 10 minutes. Soundproofed suites ensure you sleep well, on your schedule.',priority:['deluxe-king-city','exec-city','deluxe-twin-city','2bed-city'],sp:{h:'Patong Nightlife at Your Doorstep',pts:['Bangla Road Walking Street — 900m / 10 min walk','Jungceylon Mall & entertainment — 1.2km','Our Pool Bar open until late — pre-game in style','All suites are well soundproofed','Tuk-tuks available 24/7 directly outside','Late checkout available on request'],note:'Nearby: Tiger Entertainment Complex · Illuzion Nightclub · Rock City · Simon Cabaret Show (5 min taxi)'}},
+};
+
+const params = new URLSearchParams(window.location.search);
+
+// AI Banner
+const src = params.get('source');
+if(src){const names={chatgpt:'ChatGPT',perplexity:'Perplexity AI',gemini:'Google Gemini',claude:'Claude',copilot:'Microsoft Copilot'};const b=document.getElementById('ai-banner');b.style.display='block';document.getElementById('ai-source-name').textContent=(names[src.toLowerCase()]||src)+' recommended us';}
+
+// Promo
+const promo=params.get('promo');
+if(promo){const pb=document.getElementById('promo-banner');pb.style.display='block';pb.innerHTML=`Your exclusive promo code <code>${promo.toUpperCase()}</code> is ready — apply it at checkout when booking direct`;}
+
+// Context
+const ctxKey=(params.get('context')||'').toLowerCase().replace(/\s+/g,'-');
+const ctx=CONTEXTS[ctxKey];
+if(ctx){
+  document.getElementById('context-banner').style.display='block';
+  document.getElementById('ctx-icon').textContent=ctx.icon+' ';
+  document.getElementById('ctx-msg').textContent=ctx.msg;
+  document.getElementById('hero-tagline').textContent=ctx.tagline;
+  document.getElementById('rooms-label').textContent=ctx.rl;
+  document.getElementById('rooms-title').innerHTML=ctx.rt.replace(/(Suite[s]?|Pool|Family|Executive|Penthouse|Couples|Beach|Wellness)/,'<em>$1</em>');
+  document.getElementById('rooms-sub').textContent=ctx.rs;
+  const sp=ctx.sp;
+  document.getElementById('context-spotlight').style.display='block';
+  document.getElementById('spotlight-grid').innerHTML=`
+    <div class="spotlight-left">
+      <span class="label" style="display:block;margin-bottom:14px">Just for You</span>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.7rem,2.5vw,2.3rem);font-weight:300;color:var(--charcoal);margin-bottom:22px;line-height:1.2">${sp.h}</h2>
+      <ul class="spotlight-points">${sp.pts.map(p=>`<li><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>${p}</li>`).join('')}</ul>
+      ${sp.note?`<div class="nearby-note">${sp.note}</div>`:''}
+    </div>
+    <div class="spotlight-right">
+      <span class="label" style="display:block;margin-bottom:14px;color:var(--wood)">Book Direct & Save</span>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--charcoal);line-height:1.3;margin-bottom:18px">We've matched this page<br>to <em>your trip</em></p>
+      <p style="font-size:.85rem;color:var(--muted);line-height:1.8;margin-bottom:28px">When you book direct, you pay less than any OTA — and our team personally ensures your stay matches what brought you here.</p>
+      <a href="${BOOK_URL}" target="_blank" class="btn-primary" style="margin-bottom:14px">Reserve Your Suite</a>
+      <p style="font-size:.75rem;color:var(--muted)">Or call: <a href="tel:+660805428245" style="color:var(--wood-dark)">+66 (0) 80 542 8245</a></p>
+    </div>`;
+}
+
+// ── CUSTOM AI CONTENT (?custom=BASE64_JSON) ──────────────────────────────────
+// Your AI chat can build a personalized URL like:
+//   yoursite.com?custom=BASE64&source=claude
+// The base64 value is JSON with this shape:
+// {
+//   tagline:  "string — replaces hero sub-text",
+//   banner:   "string — shown in context banner (optional)",
+//   spotlight: {
+//     h:     "section headline",
+//     pts:   ["bullet 1", "bullet 2", ...],
+//     note:  "small note at bottom (optional)"
+//   },
+//   priority: ["room-id-1", "room-id-2"],  // optional, sorts rooms
+//   roomsSub: "string — replaces rooms section subtitle (optional)"
+// }
+//
+// Quick encoder helper (run in browser console to generate a URL):
+//   btoa(JSON.stringify({tagline:"...", spotlight:{h:"...",pts:["..."]}}))
+const customParam = params.get('custom');
+if (customParam && !ctx) {          // only runs if no ?context= preset is active
+  try {
+    const c = JSON.parse(atob(customParam));
+    // Banner
+    if (c.banner) {
+      const cb = document.getElementById('context-banner');
+      cb.style.display = 'block';
+      document.getElementById('ctx-icon').textContent = ' ';
+      document.getElementById('ctx-msg').textContent = c.banner;
+    }
+    // Hero tagline
+    if (c.tagline) document.getElementById('hero-tagline').textContent = c.tagline;
+    // Rooms sub
+    if (c.roomsSub) document.getElementById('rooms-sub').textContent = c.roomsSub;
+    // Spotlight panel
+    if (c.spotlight) {
+      const sp = c.spotlight;
+      document.getElementById('context-spotlight').style.display = 'block';
+      document.getElementById('spotlight-grid').innerHTML = `
+        <div class="spotlight-left">
+          <span class="label" style="display:block;margin-bottom:14px">Just for You</span>
+          <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.7rem,2.5vw,2.3rem);font-weight:300;color:var(--charcoal);margin-bottom:22px;line-height:1.2">${sp.h||''}</h2>
+          <ul class="spotlight-points">${(sp.pts||[]).map(p=>`<li><svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>${p}</li>`).join('')}</ul>
+          ${sp.note ? `<div class="nearby-note">${sp.note}</div>` : ''}
+        </div>
+        <div class="spotlight-right">
+          <span class="label" style="display:block;margin-bottom:14px;color:var(--wood)">Book Direct & Save</span>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--charcoal);line-height:1.3;margin-bottom:18px">We've tailored this page<br>to <em>your trip</em></p>
+          <p style="font-size:.85rem;color:var(--muted);line-height:1.8;margin-bottom:28px">When you book direct, you pay less than any OTA — and our team personally ensures your stay matches what brought you here.</p>
+          <a href="${BOOK_URL}" target="_blank" class="btn-primary" style="margin-bottom:14px">Reserve Your Suite</a>
+          <p style="font-size:.75rem;color:var(--muted)">Or call: <a href="tel:+660805428245" style="color:var(--wood-dark)">+66 (0) 80 542 8245</a></p>
+        </div>`;
+    }
+    // Room priority sort
+    if (Array.isArray(c.priority) && c.priority.length) {
+      window._customPriority = c.priority;
+    }
+  } catch(e) {
+    console.warn('Elite Suites: invalid ?custom= param', e);
+  }
+}
+
+// URL room override
+const urlRoom=params.get('room');
+
+// Build rooms grid
+const grid=document.getElementById('rooms-grid');
+let rooms=[...CONFIG.rooms];
+const activePriority = (ctx&&ctx.priority) || window._customPriority || null;
+if(activePriority){rooms.sort((a,b)=>{const ai=activePriority.indexOf(a.id),bi=activePriority.indexOf(b.id);if(ai===-1&&bi===-1)return 0;if(ai===-1)return 1;if(bi===-1)return -1;return ai-bi;});}
+rooms.forEach(r=>{
+  const isPri=activePriority&&activePriority.includes(r.id);
+  const imgs=r.imgs&&r.imgs.length?r.imgs:(r.img?[r.img]:[]);// backward compat
+  const multi=imgs.length>1;
+  const d=document.createElement('div');
+  d.className='room-card'+(urlRoom===r.id?' selected':'');
+  d.dataset.id=r.id;
+  d.dataset.slide='0';
+
+  const slidesHtml=imgs.map((src,i)=>`
+    <div class="room-slide${i===0?' active':''}" data-slide="${i}">
+      <img src="${src}" alt="${r.name} — photo ${i+1}" loading="${i===0?'eager':'lazy'}">
+    </div>`).join('');
+
+  const dotsHtml=multi?`<div class="room-dots">${imgs.map((_,i)=>`<button class="room-dot${i===0?' active':''}" onclick="goSlide('${r.id}',${i},event)" aria-label="Photo ${i+1}"></button>`).join('')}</div>`:'';
+
+  const arrowsHtml=multi?`
+    <button class="room-arrow prev" onclick="stepSlide('${r.id}',-1,event)" aria-label="Previous photo">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <button class="room-arrow next" onclick="stepSlide('${r.id}',1,event)" aria-label="Next photo">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>`:'';
+
+  const countHtml=multi?`<div class="room-img-count">1 / ${imgs.length}</div>`:'';
+
+  d.innerHTML=`
+    <div class="room-slides">${slidesHtml}</div>
+    ${arrowsHtml}
+    ${dotsHtml}
+    ${countHtml}
+    ${isPri?`<div class="room-badge">Recommended</div>`:''}
+    <div class="room-overlay"></div>
+    <div class="room-info">
+      <div class="room-name">${r.name}</div>
+      <div class="room-meta">${r.size} · From ${SYM}${r.dp.toLocaleString()}/night</div>
+      <div class="room-actions">
+        <button class="room-btn-sm room-btn-explore" onclick="selectRoom('${r.id}',event)">Compare Rates</button>
+        <a class="room-btn-sm room-btn-book" href="${BOOK_URL}" target="_blank">Book Direct</a>
+      </div>
+    </div>`;
+  grid.appendChild(d);
+});
+if(urlRoom)setTimeout(()=>selectRoom(urlRoom),600);
+
+// ── Carousel helpers ─────────────────────────────────────────────────────────
+function goSlide(roomId, idx, e) {
+  if(e) e.stopPropagation();
+  const card = document.querySelector(`[data-id="${roomId}"]`);
+  if(!card) return;
+  const slides = card.querySelectorAll('.room-slide');
+  const dots   = card.querySelectorAll('.room-dot');
+  const count  = card.querySelector('.room-img-count');
+  slides.forEach((s,i)=>s.classList.toggle('active', i===idx));
+  dots.forEach((d,i)=>d.classList.toggle('active', i===idx));
+  if(count) count.textContent=`${idx+1} / ${slides.length}`;
+  card.dataset.slide=idx;
+}
+function stepSlide(roomId, dir, e) {
+  if(e) e.stopPropagation();
+  const card = document.querySelector(`[data-id="${roomId}"]`);
+  if(!card) return;
+  const total = card.querySelectorAll('.room-slide').length;
+  const cur   = parseInt(card.dataset.slide||'0');
+  goSlide(roomId, (cur + dir + total) % total, e);
+}
+
+// Price badge logic
+let selRoom=null,panelOpen=false;
+function selectRoom(id,e){
+  if(e)e.stopPropagation();
+  selRoom=CONFIG.rooms.find(r=>r.id===id);
+  if(!selRoom)return;
+  document.querySelectorAll('.room-card').forEach(c=>c.classList.remove('selected'));
+  const c=document.querySelector(`[data-id="${id}"]`);
+  if(c)c.classList.add('selected');
+  const minOta=Math.min(selRoom.bk,selRoom.ex,selRoom.ag,selRoom.ht);
+  const badge=document.getElementById('price-badge');
+  if(selRoom.dp<minOta){badge.style.display='flex';renderPanel();}
+  else{badge.style.display='none';closePanel();}
+}
+function renderPanel(){
+  if(!selRoom)return;
+  document.getElementById('panel-room-name').textContent=selRoom.name;
+  const rows=[
+    {n:'Our Website',p:selRoom.dp,d:'Best Price',direct:true},
+    {n:'Booking.com',p:selRoom.bk,d:`+${SYM}${(selRoom.bk-selRoom.dp).toLocaleString()}`},
+    {n:'Expedia',p:selRoom.ex,d:`+${SYM}${(selRoom.ex-selRoom.dp).toLocaleString()}`},
+    {n:'Agoda',p:selRoom.ag,d:`+${SYM}${(selRoom.ag-selRoom.dp).toLocaleString()}`},
+    {n:'Hotels.com',p:selRoom.ht,d:`+${SYM}${(selRoom.ht-selRoom.dp).toLocaleString()}`},
+  ];
+  document.getElementById('price-table').innerHTML=rows.map(r=>`<tr class="${r.direct?'direct':''}"><td class="plat">${r.direct?'✓ ':''} ${r.n}</td><td class="pval">${SYM}${r.p.toLocaleString()}</td><td class="pdiff">${r.d}</td></tr>`).join('');
+}
+function togglePanel(){panelOpen=!panelOpen;document.getElementById('price-panel').style.display=panelOpen?'block':'none';const icon=document.querySelector('#price-trigger svg:last-child');if(icon)icon.style.transform=panelOpen?'rotate(180deg)':'';}
+function closePanel(){panelOpen=false;document.getElementById('price-panel').style.display='none';}
+
+// Nav scroll
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('solid',scrollY>50));
+
+// Exit intent
+let exitDone=false;
+function showExit(){if(exitDone||sessionStorage.getItem('esp_exit'))return;exitDone=true;sessionStorage.setItem('esp_exit','1');document.getElementById('exit-overlay').classList.add('open');}
+function closeExit(){document.getElementById('exit-overlay').classList.remove('open');}
+document.addEventListener('mouseleave',e=>{if(e.clientY<=4)showExit();});
+let mob=setTimeout(()=>{if(window.innerWidth<768)showExit();},40000);
+document.addEventListener('touchstart',()=>{clearTimeout(mob);mob=setTimeout(()=>{if(window.innerWidth<768)showExit();},40000);});
+document.getElementById('exit-overlay').addEventListener('click',e=>{if(e.target===document.getElementById('exit-overlay'))closeExit();});
+
+function pickPerk(el){document.querySelectorAll('.perk').forEach(p=>p.classList.remove('on'));el.classList.add('on');el.querySelector('input').checked=true;}
+function claimPerk(){
+  const email=document.getElementById('exit-email').value.trim();
+  const sel=document.querySelector('.perk.on');
+  if(!email||!email.includes('@')){document.getElementById('exit-email').style.borderColor='#c0392b';return;}
+  if(!sel){document.querySelectorAll('.perk').forEach(p=>p.style.borderColor='rgba(192,57,43,.4)');return;}
+  const prefixes={10off:'ESP10',breakfast:'BKFST',cocktail:'CKTL',extranight:'XNITE'};
+  const perk=sel.querySelector('input').value;
+  const code=(prefixes[perk]||'ESP')+'-'+Math.random().toString(36).substr(2,4).toUpperCase();
+  document.getElementById('exit-body').style.display='none';
+  document.getElementById('exit-success').style.display='block';
+  document.getElementById('success-code').textContent=code;
+  console.log('Lead:',{email,perk,code});
+}
+</script>
+</body>
+</html>
