@@ -1080,7 +1080,7 @@ function claimPerk(){
   const sel=document.querySelector('.perk.on');
   if(!email||!email.includes('@')){document.getElementById('exit-email').style.borderColor='#c0392b';return;}
   if(!sel){document.querySelectorAll('.perk').forEach(p=>p.style.borderColor='rgba(192,57,43,.4)');return;}
-  const prefixes={10off:'ESP10',breakfast:'BKFST',cocktail:'CKTL',extranight:'XNITE'};
+  const prefixes={'10off':'ESP10',breakfast:'BKFST',cocktail:'CKTL',extranight:'XNITE'};
   const perk=sel.querySelector('input').value;
   const code=(prefixes[perk]||'ESP')+'-'+Math.random().toString(36).substr(2,4).toUpperCase();
   document.getElementById('exit-body').style.display='none';
