@@ -173,6 +173,9 @@ section{padding:100px 0}
 .about-imgs{position:relative;height:580px}
 .img-main{position:absolute;top:0;left:0;width:78%;height:82%;object-fit:cover;box-shadow:var(--shadow-md)}
 .img-accent{position:absolute;bottom:0;right:0;width:52%;height:52%;object-fit:cover;border:8px solid var(--ivory);box-shadow:var(--shadow-md)}
+.about-slide-wrap{position:absolute;overflow:hidden}
+.about-slide-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
+.about-slide-wrap img.active{opacity:1}
 .img-ornament{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:80px;height:80px;border:1px solid var(--beige-deep);border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--ivory)}
 .about-text .label{margin-bottom:14px;display:block}
 .about-text h2{font-size:clamp(2rem,3vw,2.8rem);font-weight:300;line-height:1.2;margin-bottom:24px;color:var(--charcoal)}
@@ -398,8 +401,25 @@ footer{background:var(--charcoal);padding:70px 0 32px}
     <div class="about-grid">
       <div class="about-imgs">
         <!-- REPLACE: about-main — pool or lobby photo, landscape orientation recommended -->
-        <img class="img-main" src="images/lobby (2).JPG" alt="Elite Suites Lobby" style="position:absolute;top:0;left:0;width:78%;height:82%;object-fit:cover">
-        <img class="img-accent" src="images/room-execsuite-bedroom (4).JPG" alt="Elite Suites Room" style="position:absolute;bottom:0;right:0;width:52%;height:52%;object-fit:cover;border:8px solid var(--ivory)">
+        <!-- Main slideshow: pool + lobby images -->
+        <div id="about-main-slide" class="about-slide-wrap" style="top:0;left:0;width:78%;height:82%;box-shadow:var(--shadow-md)">
+          <img src="images/pool (1).JPG" alt="Elite Suites Pool" loading="eager" decoding="async">
+          <img src="images/pool (2).JPG" alt="Elite Suites Pool" loading="lazy" decoding="async">
+          <img src="images/pool (3).JPG" alt="Elite Suites Pool" loading="lazy" decoding="async">
+          <img src="images/lobby (1).JPG" alt="Elite Suites Lobby" loading="lazy" decoding="async">
+          <img src="images/lobby (2).JPG" alt="Elite Suites Lobby" loading="lazy" decoding="async">
+          <img src="images/lobby (3).JPG" alt="Elite Suites Lobby" loading="lazy" decoding="async">
+          <img src="images/lobby (4).JPG" alt="Elite Suites Lobby" loading="lazy" decoding="async">
+        </div>
+        <!-- Accent slideshow: spa + gym images -->
+        <div id="about-accent-slide" class="about-slide-wrap" style="bottom:0;right:0;width:52%;height:52%;border:8px solid var(--ivory);box-shadow:var(--shadow-md)">
+          <img src="images/gaya spa (1).JPG" alt="Gaya Spa" loading="lazy" decoding="async">
+          <img src="images/gaya spa (2).JPG" alt="Gaya Spa" loading="lazy" decoding="async">
+          <img src="images/gaya spa (3).JPG" alt="Gaya Spa" loading="lazy" decoding="async">
+          <img src="images/gaya spa (4).JPG" alt="Gaya Spa" loading="lazy" decoding="async">
+          <img src="images/gym (1).JPG" alt="Gym" loading="lazy" decoding="async">
+          <img src="images/gym (2).JPG" alt="Gym" loading="lazy" decoding="async">
+        </div>
         <div class="img-ornament">
           <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="1">
             <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
@@ -975,9 +995,10 @@ rooms.forEach(r=>{
   d.dataset.id=r.id;
   d.dataset.slide='0';
 
+  const isFirstCard = rooms.indexOf(r) === 0;
   const slidesHtml=imgs.map((src,i)=>`
     <div class="room-slide${i===0?' active':''}" data-slide="${i}">
-      <img src="${src}" alt="${r.name} — photo ${i+1}" loading="${i===0?'eager':'lazy'}">
+      <img src="${src}" alt="${r.name} — photo ${i+1}" loading="${isFirstCard && i===0 ? 'eager' : 'lazy'}" decoding="async">
     </div>`).join('');
 
   const dotsHtml=multi?`<div class="room-dots">${imgs.map((_,i)=>`<button class="room-dot${i===0?' active':''}" onclick="goSlide('${r.id}',${i},event)" aria-label="Photo ${i+1}"></button>`).join('')}</div>`:'';
@@ -1073,6 +1094,25 @@ document.addEventListener('mouseleave',e=>{if(e.clientY<=4)showExit();});
 let mob=setTimeout(()=>{if(window.innerWidth<768)showExit();},40000);
 document.addEventListener('touchstart',()=>{clearTimeout(mob);mob=setTimeout(()=>{if(window.innerWidth<768)showExit();},40000);});
 document.getElementById('exit-overlay').addEventListener('click',e=>{if(e.target===document.getElementById('exit-overlay'))closeExit();});
+
+// About section auto-slideshows
+function initAboutSlideshow(id, interval, startDelay) {
+  const wrap = document.getElementById(id);
+  if (!wrap) return;
+  const imgs = wrap.querySelectorAll('img');
+  if (!imgs.length) return;
+  let cur = 0;
+  imgs[0].classList.add('active');
+  setTimeout(() => {
+    setInterval(() => {
+      imgs[cur].classList.remove('active');
+      cur = (cur + 1) % imgs.length;
+      imgs[cur].classList.add('active');
+    }, interval);
+  }, startDelay);
+}
+initAboutSlideshow('about-main-slide', 4000, 0);
+initAboutSlideshow('about-accent-slide', 4000, 2000);
 
 function pickPerk(el){document.querySelectorAll('.perk').forEach(p=>p.classList.remove('on'));el.classList.add('on');el.querySelector('input').checked=true;}
 function claimPerk(){
