@@ -68,7 +68,7 @@ svg.icon{flex-shrink:0;stroke-linecap:round;stroke-linejoin:round}
 
 /* ── HERO ── */
 .hero{height:100vh;min-height:680px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:url('images/hero-bg.jpg') center/cover no-repeat}
+.hero-bg{position:absolute;inset:0;background:url('images/lobby (1).JPG') center/cover no-repeat}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,18,10,.55) 0%,rgba(26,18,10,.35) 50%,rgba(26,18,10,.65) 100%)}
 .hero-content{position:relative;z-index:2;text-align:center;color:var(--white);padding:0 20px;animation:fadeUp .9s ease both}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
@@ -235,7 +235,7 @@ section{padding:100px 0}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 .exit-modal{background:var(--ivory);max-width:580px;width:100%;animation:popIn .4s cubic-bezier(.34,1.4,.64,1) both;overflow:hidden;position:relative}
 @keyframes popIn{from{opacity:0;transform:scale(.92) translateY(16px)}to{opacity:1;transform:scale(1) translateY(0)}}
-.exit-hero{height:180px;background:url('images/exit-popup.jpg') center/cover;position:relative}
+.exit-hero{height:180px;background:url('images/gaya spa (1).JPG') center/cover;position:relative}
 .exit-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,18,10,.4),rgba(26,18,10,.85))}
 .exit-hero-text{position:absolute;bottom:24px;left:32px;z-index:1;color:var(--white)}
 .exit-hero-text h3{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:300;line-height:1.2}
@@ -330,7 +330,7 @@ footer{background:var(--charcoal);padding:70px 0 32px}
 <!-- HERO -->
 <section class="hero">
   <!-- REPLACE: hero background — use a wide landscape shot of the hotel exterior, pool, or beach view (min 1800px wide) -->
-  <div class="hero-bg" style="background-image:url('images/hero-bg.jpg')"></div>
+  <div class="hero-bg" style="background-image:url('images/lobby (1).JPG')"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <span class="hero-eyebrow" id="hero-location">Patong Beach · Phuket, Thailand</span>
@@ -398,9 +398,8 @@ footer{background:var(--charcoal);padding:70px 0 32px}
     <div class="about-grid">
       <div class="about-imgs">
         <!-- REPLACE: about-main — pool or lobby photo, landscape orientation recommended -->
-        <img class="img-main" src="images/about-main.jpg" alt="Elite Suites Pool" style="position:absolute;top:0;left:0;width:78%;height:82%;object-fit:cover">
-        <!-- REPLACE: about-accent — suite interior or balcony view, portrait orientation recommended -->
-        <img class="img-accent" src="images/about-accent.jpg" alt="Elite Suites Room" style="position:absolute;bottom:0;right:0;width:52%;height:52%;object-fit:cover;border:8px solid var(--ivory)">
+        <img class="img-main" src="images/lobby (2).JPG" alt="Elite Suites Lobby" style="position:absolute;top:0;left:0;width:78%;height:82%;object-fit:cover">
+        <img class="img-accent" src="images/room-execsuite-bedroom (4).JPG" alt="Elite Suites Room" style="position:absolute;bottom:0;right:0;width:52%;height:52%;object-fit:cover;border:8px solid var(--ivory)">
         <div class="img-ornament">
           <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="1">
             <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
@@ -670,7 +669,7 @@ footer{background:var(--charcoal);padding:70px 0 32px}
 <div id="exit-overlay">
   <div class="exit-modal">
     <!-- REPLACE: exit-popup image — a glamorous room or pool shot works well here -->
-    <div class="exit-hero" style="background-image:url('images/exit-popup.jpg')">
+    <div class="exit-hero" style="background-image:url('images/gaya spa (1).JPG')">
       <button class="exit-close-btn" onclick="closeExit()">✕</button>
       <div class="exit-hero-text">
         <h3>Wait — before<br>you <em>leave…</em></h3>
@@ -741,33 +740,110 @@ const SYM = '฿';
 
 const CONFIG = {
   rooms: [
-    // imgs: array of image paths. Add as many as you like — the card becomes a carousel.
-    // One image = no carousel UI shown. All paths relative to this HTML file.
-    // Recommended size: 900×600px JPG per image.
     {id:'deluxe-king-city', name:'Deluxe Suite King — City View', size:'42 sqm', dp:2800, bk:3200, ex:3350, ag:3100, ht:3280,
-      imgs:['images/room-deluxe-king-city.jpg']},
+      imgs:[
+        'images/room-deluxesuiteking-bedroom (10).jpg',
+        'images/room-deluxesuiteking-bedroom (11).JPG',
+        'images/room-deluxesuiteking-bedroom (12).jpg',
+        'images/room-deluxesuite-bedroom (3).JPG',
+        'images/room-deluxesuite-bedroom (5).JPG',
+        'images/room-deluxesuite-bedroom (6).JPG',
+      ]},
     {id:'deluxe-king-pool', name:'Deluxe Suite King — Pool View', size:'42 sqm', dp:3200, bk:3600, ex:3750, ag:3500, ht:3680,
-      imgs:['images/room-deluxe-king-pool.jpg']},
+      imgs:[
+        'images/room-deluxesuiteking-bedroom (10).jpg',
+        'images/room-deluxesuiteking-bedroom (11).JPG',
+        'images/room-deluxesuiteking-bedroom (12).jpg',
+        'images/room-deluxesuite-bedroom (7).JPG',
+        'images/room-deluxesuite-bedroom (8).JPG',
+        'images/room-deluxesuite-bedroom (11).JPG',
+      ]},
     {id:'deluxe-twin-city', name:'Deluxe Suite Twin — City View', size:'42 sqm', dp:2800, bk:3100, ex:3200, ag:3000, ht:3150,
-      imgs:['images/room-deluxe-twin-city.jpg']},
+      imgs:[
+        'images/room-deluxesuitetwin-bedroom (1).JPG',
+        'images/room-deluxesuitetwin-bedroom (2).JPG',
+        'images/room-deluxesuite-bedroom (3).JPG',
+        'images/room-deluxesuite-bedroom (5).JPG',
+      ]},
     {id:'deluxe-twin-pool', name:'Deluxe Suite Twin — Pool View', size:'42 sqm', dp:3200, bk:3500, ex:3600, ag:3400, ht:3550,
-      imgs:['images/room-deluxe-twin-pool.jpg']},
+      imgs:[
+        'images/room-deluxesuitetwin-bedroom (1).JPG',
+        'images/room-deluxesuitetwin-bedroom (2).JPG',
+        'images/room-deluxesuite-bedroom (6).JPG',
+        'images/room-deluxesuite-bedroom (7).JPG',
+      ]},
     {id:'exec-city',        name:'Executive Suite — City View',   size:'55 sqm', dp:4200, bk:4800, ex:5000, ag:4600, ht:4900,
-      imgs:['images/room-exec-city.jpg']},
+      imgs:[
+        'images/room-execsuite-city.JPG',
+        'images/room-execsuiteking-bedroom (5).JPG',
+        'images/room-execsuiteking-bedroom (6).JPG',
+        'images/room-execsuiteking-bedroom (7).JPG',
+        'images/room-execsuite-bedroom (4).JPG',
+        'images/room-execsuite-bathroom.JPG',
+      ]},
     {id:'exec-pool',        name:'Executive Suite — Pool View',   size:'55 sqm', dp:4800, bk:5400, ex:5600, ag:5200, ht:5500,
-      imgs:['images/room-exec-pool.jpg']},
+      imgs:[
+        'images/room-execsuite-pool.JPG',
+        'images/room-execsuitetwin-bedroom (2).JPG',
+        'images/room-execsuitetwin-bedroom (3).JPG',
+        'images/room-execsuite-bedroom (6).JPG',
+        'images/room-execsuite-bedroom (8).JPG',
+        'images/room-execsuite-bathroom.JPG',
+      ]},
     {id:'classic-pool',     name:'Classic Suite — Pool Access',   size:'48 sqm', dp:3600, bk:3600, ex:3750, ag:3600, ht:3700,
-      imgs:['images/room-classic-pool.jpg']},
+      imgs:[
+        'images/room-classicsuite-pool.JPG',
+        'images/room-classicsuite-bedroom (2).JPG',
+        'images/room-classicsuite-bedroom (3).JPG',
+        'images/room-classicsuite-bedroom (4).JPG',
+        'images/room-classicsuite-bedroom (5).JPG',
+        'images/room-classicsuite-bedroom (6).JPG',
+        'images/room-classicsuite-bedroom (7).JPG',
+      ]},
     {id:'family-city',      name:'Family Suite — City View',      size:'65 sqm', dp:5200, bk:5800, ex:6000, ag:5600, ht:5900,
-      imgs:['images/room-family-city.jpg']},
+      imgs:[
+        'images/room-famsuite-city.JPG',
+        'images/room-famsuite-bedroom (1).JPG',
+        'images/room-famsuite-bedroom (3).JPG',
+        'images/room-famsuite-bedroom (4).JPG',
+        'images/room-famsuite-bathroom.JPG',
+      ]},
     {id:'family-pool',      name:'Family Suite — Pool View',      size:'65 sqm', dp:5800, bk:6500, ex:6800, ag:6300, ht:6600,
-      imgs:['images/room-family-pool.jpg']},
+      imgs:[
+        'images/room-famsuite-pool.JPG',
+        'images/room-famsuite-bedroom (1).JPG',
+        'images/room-famsuite-bedroom (3).JPG',
+        'images/room-famsuite-bedroom (4).JPG',
+        'images/room-famsuite-bathroom.JPG',
+      ]},
     {id:'2bed-city',        name:'Two Bedroom Suite — City View', size:'75 sqm', dp:7200, bk:8000, ex:8400, ag:7800, ht:8200,
-      imgs:['images/room-2bed-city.jpg']},
+      imgs:[
+        'images/room-twobedsuite-city.JPG',
+        'images/room-twobedsuite-bedroom (2).JPG',
+        'images/room-twobedsuite-bedroom (3).JPG',
+        'images/room-twobedsuite-bedroom (4).JPG',
+      ]},
     {id:'2bed-pool',        name:'Two Bedroom Suite — Pool View', size:'75 sqm', dp:7800, bk:8800, ex:9000, ag:8500, ht:8900,
-      imgs:['images/room-2bed-pool.jpg']},
+      imgs:[
+        'images/room-twobedsuite-pool.JPG',
+        'images/room-twobedsuite-bedroom (2).JPG',
+        'images/room-twobedsuite-bedroom (3).JPG',
+        'images/room-twobedsuite-bedroom (4).JPG',
+      ]},
     {id:'penthouse',        name:'Penthouse — Private Pool',      size:'85 sqm', dp:12000,bk:13500,ex:14000,ag:13200,ht:13800,
-      imgs:['images/room-penthouse.jpg']},
+      imgs:[
+        'images/room-penthouse-pool.JPG',
+        'images/room-penthouse-pool lobby.JPG',
+        'images/room-penthouse-lobby (1).JPG',
+        'images/room-penthouse-lobby (2).JPG',
+        'images/room-penthouse-lobby (3).JPG',
+        'images/room-penthouse-king (1).JPG',
+        'images/room-penthouse-king (2).JPG',
+        'images/room-penthouse-twin (1).JPG',
+        'images/room-penthouse-twin (2).JPG',
+        'images/room-penthouse-twin (5).JPG',
+        'images/room-penthouse-bath.JPG',
+      ]},
   ]
 };
 
