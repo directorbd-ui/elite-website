@@ -142,30 +142,9 @@ section{padding:100px 0}
 .room-btn-book{background:var(--wood);color:var(--ivory)}
 .room-btn-book:hover{background:var(--wood-dark)}
 
-/* ── PRICE BADGE ── */
-#price-badge{position:fixed;bottom:32px;right:32px;z-index:800;display:none;flex-direction:column;align-items:flex-end;gap:0;animation:slideRight .5s cubic-bezier(.34,1.56,.64,1) both}
-@keyframes slideRight{from{opacity:0;transform:translateX(50px)}to{opacity:1;transform:translateX(0)}}
-#price-panel{display:none;width:360px;background:var(--ivory);border:1px solid var(--beige-deep);box-shadow:var(--shadow-lg)}
-.panel-head{background:var(--wood);padding:20px 24px}
-.panel-head h4{font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:4px;font-family:'Montserrat',sans-serif}
-.panel-head p{color:var(--beige);font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400}
-.price-table{width:100%;border-collapse:collapse}
-.price-table td{padding:12px 22px;border-bottom:1px solid var(--rule);font-size:.82rem}
-.price-table tr:last-child td{border-bottom:none}
-.price-table .plat{color:var(--muted)}
-.price-table .pval{text-align:right;color:var(--charcoal);font-weight:500}
-.price-table .pdiff{text-align:right;font-size:.72rem;color:#c0392b}
-.price-table tr.direct{background:rgba(139,111,71,.07)}
-.price-table tr.direct .plat{color:var(--wood-dark);font-weight:500}
-.price-table tr.direct .pval{color:var(--wood-dark)}
-.price-table tr.direct .pdiff{color:#27ae60;font-size:.7rem}
-.panel-cta-link{display:block;background:var(--wood);color:var(--ivory);text-align:center;padding:14px;font-size:9px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;font-family:'Montserrat',sans-serif;transition:background .3s}
-.panel-cta-link:hover{background:var(--wood-dark)}
-.panel-note{padding:9px;text-align:center;font-size:9px;letter-spacing:.08em;color:var(--muted);border-top:1px solid var(--rule)}
-#price-trigger{display:flex;align-items:center;gap:12px;background:var(--wood);color:var(--ivory);border:none;padding:14px 22px;font-size:9px;letter-spacing:.18em;text-transform:uppercase;font-family:'Montserrat',sans-serif;font-weight:500;cursor:pointer;box-shadow:var(--shadow-md);transition:background .3s;width:100%}
-#price-trigger:hover{background:var(--wood-dark)}
-.pulse-dot{width:7px;height:7px;background:#6dbf8b;border-radius:50%;flex-shrink:0;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(109,191,139,.5)}50%{box-shadow:0 0 0 6px rgba(109,191,139,0)}}
+/* ── ROOM FEATURES ── */
+.room-features{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
+.room-feat{font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.25);padding:3px 8px;font-family:'Montserrat',sans-serif}
 
 /* ── ABOUT ── */
 .about-section{background:var(--ivory)}
@@ -377,23 +356,6 @@ footer{background:var(--charcoal);padding:70px 0 32px}
   </div>
 </section>
 
-<!-- PRICE BADGE -->
-<div id="price-badge">
-  <div id="price-panel">
-    <div class="panel-head">
-      <h4>Best Price Guarantee</h4>
-      <p id="panel-room-name">—</p>
-    </div>
-    <table class="price-table" id="price-table"></table>
-    <a href="https://hotels.cloudbeds.com/reservation/q4GFCr" target="_blank" class="panel-cta-link">Book Direct — Save Now</a>
-    <p class="panel-note">Live rates via Cloudbeds · Updated in real time</p>
-  </div>
-  <button id="price-trigger" onclick="togglePanel()">
-    <div class="pulse-dot"></div>
-    We're cheaper · Compare rates
-    <svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-left:auto"><path d="M18 15l-6-6-6 6"/></svg>
-  </button>
-</div>
 
 <!-- ABOUT -->
 <section class="about-section" id="about">
@@ -756,11 +718,11 @@ footer{background:var(--charcoal);padding:70px 0 32px}
 
 <script>
 const BOOK_URL = 'https://hotels.cloudbeds.com/reservation/q4GFCr';
-const SYM = '฿';
 
 const CONFIG = {
   rooms: [
-    {id:'deluxe-king-city', name:'Deluxe Suite King — City View', size:'42 sqm', dp:2800, bk:3200, ex:3350, ag:3100, ht:3280,
+    {id:'deluxe-king-city', name:'Deluxe Suite King — City View', size:'42 sqm',
+      features:['King Bed','Private Balcony','Separate Lounge','City View','Kitchenette','Free WiFi'],
       imgs:[
         'images/room-deluxesuiteking-bedroom (10).jpg',
         'images/room-deluxesuiteking-bedroom (11).JPG',
@@ -769,7 +731,8 @@ const CONFIG = {
         'images/room-deluxesuite-bedroom (5).JPG',
         'images/room-deluxesuite-bedroom (6).JPG',
       ]},
-    {id:'deluxe-king-pool', name:'Deluxe Suite King — Pool View', size:'42 sqm', dp:3200, bk:3600, ex:3750, ag:3500, ht:3680,
+    {id:'deluxe-king-pool', name:'Deluxe Suite King — Pool View', size:'42 sqm',
+      features:['King Bed','Private Balcony','Separate Lounge','Pool View','Kitchenette','Free WiFi'],
       imgs:[
         'images/room-deluxesuiteking-bedroom (10).jpg',
         'images/room-deluxesuiteking-bedroom (11).JPG',
@@ -778,39 +741,38 @@ const CONFIG = {
         'images/room-deluxesuite-bedroom (8).JPG',
         'images/room-deluxesuite-bedroom (11).JPG',
       ]},
-    {id:'deluxe-twin-city', name:'Deluxe Suite Twin — City View', size:'42 sqm', dp:2800, bk:3100, ex:3200, ag:3000, ht:3150,
+    {id:'deluxe-twin-city', name:'Deluxe Suite Twin — City View', size:'42 sqm',
+      features:['Twin Beds','Private Balcony','Separate Lounge','City View','Kitchenette','Free WiFi'],
       imgs:[
         'images/room-deluxesuitetwin-bedroom (1).JPG',
         'images/room-deluxesuitetwin-bedroom (2).JPG',
         'images/room-deluxesuite-bedroom (3).JPG',
         'images/room-deluxesuite-bedroom (5).JPG',
       ]},
-    {id:'deluxe-twin-pool', name:'Deluxe Suite Twin — Pool View', size:'42 sqm', dp:3200, bk:3500, ex:3600, ag:3400, ht:3550,
+    {id:'deluxe-twin-pool', name:'Deluxe Suite Twin — Pool View', size:'42 sqm',
+      features:['Twin Beds','Private Balcony','Separate Lounge','Pool View','Kitchenette','Free WiFi'],
       imgs:[
         'images/room-deluxesuitetwin-bedroom (1).JPG',
         'images/room-deluxesuitetwin-bedroom (2).JPG',
         'images/room-deluxesuite-bedroom (6).JPG',
         'images/room-deluxesuite-bedroom (7).JPG',
       ]},
-    {id:'exec-city',        name:'Executive Suite — City View',   size:'55 sqm', dp:4200, bk:4800, ex:5000, ag:4600, ht:4900,
+    {id:'exec-city',        name:'Executive Suite — City View',   size:'55 sqm',
+      features:['King Bed','Luxury Bathtub','Spacious Living Area','City View','Private Balcony','Nespresso Machine'],
       imgs:[
         'images/room-execsuite-city.JPG',
-        'images/room-execsuiteking-bedroom (5).JPG',
-        'images/room-execsuiteking-bedroom (6).JPG',
-        'images/room-execsuiteking-bedroom (7).JPG',
         'images/room-execsuite-bedroom (4).JPG',
         'images/room-execsuite-bathroom.JPG',
       ]},
-    {id:'exec-pool',        name:'Executive Suite — Pool View',   size:'55 sqm', dp:4800, bk:5400, ex:5600, ag:5200, ht:5500,
+    {id:'exec-pool',        name:'Executive Suite — Pool View',   size:'55 sqm',
+      features:['King Bed','Luxury Bathtub','Spacious Living Area','Pool View','Private Balcony','Nespresso Machine'],
       imgs:[
-        'images/room-execsuite-pool.JPG',
-        'images/room-execsuitetwin-bedroom (2).JPG',
-        'images/room-execsuitetwin-bedroom (3).JPG',
         'images/room-execsuite-bedroom (6).JPG',
         'images/room-execsuite-bedroom (8).JPG',
         'images/room-execsuite-bathroom.JPG',
       ]},
-    {id:'classic-pool',     name:'Classic Suite — Pool Access',   size:'48 sqm', dp:3600, bk:3600, ex:3750, ag:3600, ht:3700,
+    {id:'classic-pool',     name:'Classic Suite — Pool Access',   size:'48 sqm',
+      features:['Direct Pool Access','King Bed','Private Balcony','Separate Lounge','Kitchenette','Free WiFi'],
       imgs:[
         'images/room-classicsuite-pool.JPG',
         'images/room-classicsuite-bedroom (2).JPG',
@@ -820,7 +782,8 @@ const CONFIG = {
         'images/room-classicsuite-bedroom (6).JPG',
         'images/room-classicsuite-bedroom (7).JPG',
       ]},
-    {id:'family-city',      name:'Family Suite — City View',      size:'65 sqm', dp:5200, bk:5800, ex:6000, ag:5600, ht:5900,
+    {id:'family-city',      name:'Family Suite — City View',      size:'65 sqm',
+      features:['2 Bedrooms','Kids Club Access','City View','Private Balcony','Separate Lounge','Baby Cot Available'],
       imgs:[
         'images/room-famsuite-city.JPG',
         'images/room-famsuite-bedroom (1).JPG',
@@ -828,7 +791,8 @@ const CONFIG = {
         'images/room-famsuite-bedroom (4).JPG',
         'images/room-famsuite-bathroom.JPG',
       ]},
-    {id:'family-pool',      name:'Family Suite — Pool View',      size:'65 sqm', dp:5800, bk:6500, ex:6800, ag:6300, ht:6600,
+    {id:'family-pool',      name:'Family Suite — Pool View',      size:'65 sqm',
+      features:['2 Bedrooms','Kids Club Access','Pool View','Private Balcony','Separate Lounge','Baby Cot Available'],
       imgs:[
         'images/room-famsuite-pool.JPG',
         'images/room-famsuite-bedroom (1).JPG',
@@ -836,21 +800,24 @@ const CONFIG = {
         'images/room-famsuite-bedroom (4).JPG',
         'images/room-famsuite-bathroom.JPG',
       ]},
-    {id:'2bed-city',        name:'Two Bedroom Suite — City View', size:'75 sqm', dp:7200, bk:8000, ex:8400, ag:7800, ht:8200,
+    {id:'2bed-city',        name:'Two Bedroom Suite — City View', size:'75 sqm',
+      features:['2 Bedrooms','Full Kitchen','City View','2 Bathrooms','Private Balcony','Living & Dining Area'],
       imgs:[
         'images/room-twobedsuite-city.JPG',
         'images/room-twobedsuite-bedroom (2).JPG',
         'images/room-twobedsuite-bedroom (3).JPG',
         'images/room-twobedsuite-bedroom (4).JPG',
       ]},
-    {id:'2bed-pool',        name:'Two Bedroom Suite — Pool View', size:'75 sqm', dp:7800, bk:8800, ex:9000, ag:8500, ht:8900,
+    {id:'2bed-pool',        name:'Two Bedroom Suite — Pool View', size:'75 sqm',
+      features:['2 Bedrooms','Full Kitchen','Pool View','2 Bathrooms','Private Balcony','Living & Dining Area'],
       imgs:[
         'images/room-twobedsuite-pool.JPG',
         'images/room-twobedsuite-bedroom (2).JPG',
         'images/room-twobedsuite-bedroom (3).JPG',
         'images/room-twobedsuite-bedroom (4).JPG',
       ]},
-    {id:'penthouse',        name:'Penthouse — Private Pool',      size:'85 sqm', dp:12000,bk:13500,ex:14000,ag:13200,ht:13800,
+    {id:'penthouse',        name:'Penthouse — Private Pool',      size:'85 sqm',
+      features:['Private Rooftop Pool','2 Bedrooms','Panoramic Views','Full Kitchen','Butler Service','2 Bathrooms'],
       imgs:[
         'images/room-penthouse-pool.JPG',
         'images/room-penthouse-pool lobby.JPG',
@@ -979,7 +946,6 @@ if (customParam && !ctx) {          // only runs if no ?context= preset is activ
 }
 
 // URL room override
-const urlRoom=params.get('room');
 
 // Build rooms grid
 const grid=document.getElementById('rooms-grid');
@@ -991,7 +957,7 @@ rooms.forEach(r=>{
   const imgs=r.imgs&&r.imgs.length?r.imgs:(r.img?[r.img]:[]);// backward compat
   const multi=imgs.length>1;
   const d=document.createElement('div');
-  d.className='room-card'+(urlRoom===r.id?' selected':'');
+  d.className='room-card';
   d.dataset.id=r.id;
   d.dataset.slide='0';
 
@@ -1012,6 +978,7 @@ rooms.forEach(r=>{
     </button>`:'';
 
   const countHtml=multi?`<div class="room-img-count">1 / ${imgs.length}</div>`:'';
+  const featuresHtml=(r.features||[]).map(f=>`<span class="room-feat">${f}</span>`).join('');
 
   d.innerHTML=`
     <div class="room-slides">${slidesHtml}</div>
@@ -1022,15 +989,14 @@ rooms.forEach(r=>{
     <div class="room-overlay"></div>
     <div class="room-info">
       <div class="room-name">${r.name}</div>
-      <div class="room-meta">${r.size} · From ${SYM}${r.dp.toLocaleString()}/night</div>
+      <div class="room-meta">${r.size}</div>
+      <div class="room-features">${featuresHtml}</div>
       <div class="room-actions">
-        <button class="room-btn-sm room-btn-explore" onclick="selectRoom('${r.id}',event)">Compare Rates</button>
-        <a class="room-btn-sm room-btn-book" href="${BOOK_URL}" target="_blank">Book Direct</a>
+        <a class="room-btn-sm room-btn-book" href="${BOOK_URL}" target="_blank">Check Availability</a>
       </div>
     </div>`;
   grid.appendChild(d);
 });
-if(urlRoom)setTimeout(()=>selectRoom(urlRoom),600);
 
 // ── Carousel helpers ─────────────────────────────────────────────────────────
 function goSlide(roomId, idx, e) {
@@ -1054,34 +1020,6 @@ function stepSlide(roomId, dir, e) {
   goSlide(roomId, (cur + dir + total) % total, e);
 }
 
-// Price badge logic
-let selRoom=null,panelOpen=false;
-function selectRoom(id,e){
-  if(e)e.stopPropagation();
-  selRoom=CONFIG.rooms.find(r=>r.id===id);
-  if(!selRoom)return;
-  document.querySelectorAll('.room-card').forEach(c=>c.classList.remove('selected'));
-  const c=document.querySelector(`[data-id="${id}"]`);
-  if(c)c.classList.add('selected');
-  const minOta=Math.min(selRoom.bk,selRoom.ex,selRoom.ag,selRoom.ht);
-  const badge=document.getElementById('price-badge');
-  if(selRoom.dp<minOta){badge.style.display='flex';renderPanel();}
-  else{badge.style.display='none';closePanel();}
-}
-function renderPanel(){
-  if(!selRoom)return;
-  document.getElementById('panel-room-name').textContent=selRoom.name;
-  const rows=[
-    {n:'Our Website',p:selRoom.dp,d:'Best Price',direct:true},
-    {n:'Booking.com',p:selRoom.bk,d:`+${SYM}${(selRoom.bk-selRoom.dp).toLocaleString()}`},
-    {n:'Expedia',p:selRoom.ex,d:`+${SYM}${(selRoom.ex-selRoom.dp).toLocaleString()}`},
-    {n:'Agoda',p:selRoom.ag,d:`+${SYM}${(selRoom.ag-selRoom.dp).toLocaleString()}`},
-    {n:'Hotels.com',p:selRoom.ht,d:`+${SYM}${(selRoom.ht-selRoom.dp).toLocaleString()}`},
-  ];
-  document.getElementById('price-table').innerHTML=rows.map(r=>`<tr class="${r.direct?'direct':''}"><td class="plat">${r.direct?'✓ ':''} ${r.n}</td><td class="pval">${SYM}${r.p.toLocaleString()}</td><td class="pdiff">${r.d}</td></tr>`).join('');
-}
-function togglePanel(){panelOpen=!panelOpen;document.getElementById('price-panel').style.display=panelOpen?'block':'none';const icon=document.querySelector('#price-trigger svg:last-child');if(icon)icon.style.transform=panelOpen?'rotate(180deg)':'';}
-function closePanel(){panelOpen=false;document.getElementById('price-panel').style.display='none';}
 
 // Nav scroll
 window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('solid',scrollY>50));
