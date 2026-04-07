@@ -142,13 +142,6 @@ section{padding:100px 0}
 .room-btn-book{background:var(--wood);color:var(--ivory)}
 .room-btn-book:hover{background:var(--wood-dark)}
 
-/* ── OFFER BUTTON ── */
-#offer-btn{position:fixed;bottom:32px;right:32px;z-index:800;background:var(--wood);color:var(--ivory);border:none;padding:14px 22px;font-size:9px;letter-spacing:.18em;text-transform:uppercase;font-family:'Montserrat',sans-serif;font-weight:500;cursor:pointer;box-shadow:var(--shadow-md);display:flex;align-items:center;gap:10px;transition:background .3s}
-#offer-btn:hover{background:var(--wood-dark)}
-#offer-btn .offer-dot{width:7px;height:7px;background:#6dbf8b;border-radius:50%;flex-shrink:0;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(109,191,139,.5)}50%{box-shadow:0 0 0 6px rgba(109,191,139,0)}}
-@media(max-width:900px){#offer-btn{bottom:16px;right:16px}}
-
 /* ── ROOM FEATURES ── */
 .room-features{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
 .room-feat{font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.25);padding:3px 8px;font-family:'Montserrat',sans-serif}
@@ -654,12 +647,6 @@ footer{background:var(--charcoal);padding:70px 0 32px}
   </div>
 </footer>
 
-<!-- OFFER BUTTON -->
-<button id="offer-btn" onclick="showExit()">
-  <div class="offer-dot"></div>
-  Exclusive Offer
-</button>
-
 <!-- EXIT INTENT POPUP -->
 <div id="exit-overlay">
   <div class="exit-modal">
@@ -1038,8 +1025,10 @@ function stepSlide(roomId, dir, e) {
 window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('solid',scrollY>50));
 
 // Exit intent
-function showExit(){document.getElementById('exit-overlay').classList.add('open');}
+let exitDone=false;
+function showExit(){if(exitDone||sessionStorage.getItem('esp_exit'))return;exitDone=true;sessionStorage.setItem('esp_exit','1');document.getElementById('exit-overlay').classList.add('open');}
 function closeExit(){document.getElementById('exit-overlay').classList.remove('open');}
+document.addEventListener('mouseleave',e=>{if(e.clientY<=4)showExit();});
 document.getElementById('exit-overlay').addEventListener('click',e=>{if(e.target===document.getElementById('exit-overlay'))closeExit();});
 
 // About section auto-slideshows
