@@ -102,43 +102,42 @@ section{padding:100px 0}
 
 /* ── ROOMS ── */
 .rooms-section{background:var(--beige)}
-.rooms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
-.room-card{position:relative;overflow:hidden;background:var(--charcoal);aspect-ratio:3/2;cursor:pointer}
-.room-card:first-child{grid-column:span 2;aspect-ratio:auto;min-height:360px}
-.room-card:nth-child(5){grid-column:span 2;min-height:300px}
-/* Single-image behaviour preserved */
-.room-img{transition:transform .7s var(--transition),opacity .4s}
-.room-card:hover .room-img{transform:scale(1.06);opacity:.55}
-/* ── Multi-image carousel ── */
+.rooms-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;padding:0 0 8px}
+.room-card{position:relative;overflow:hidden;background:var(--charcoal);aspect-ratio:16/10;cursor:pointer;border-radius:2px;box-shadow:0 4px 24px rgba(74,55,40,0.10)}
+/* Scroll reveal */
+.room-card{opacity:0;transform:translateY(32px);transition:opacity .55s ease,transform .55s ease,box-shadow .4s}
+.room-card.visible{opacity:1;transform:translateY(0)}
+.room-card:hover{box-shadow:0 12px 48px rgba(74,55,40,0.22)}
+/* Multi-image carousel */
 .room-slides{position:absolute;inset:0}
 .room-slide{position:absolute;inset:0;opacity:0;transition:opacity .6s ease}
 .room-slide.active{opacity:1}
-.room-slide img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--transition)}
-.room-card:hover .room-slide.active img{transform:scale(1.06)}
+.room-slide img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.25,.46,.45,.94)}
+.room-card:hover .room-slide.active img{transform:scale(1.07)}
 /* Carousel arrows */
-.room-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:4;background:rgba(26,18,10,.45);border:none;color:var(--white);width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .3s,background .3s;backdrop-filter:blur(4px)}
-.room-arrow:hover{background:rgba(26,18,10,.75)}
-.room-arrow.prev{left:10px}
-.room-arrow.next{right:10px}
+.room-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:4;background:rgba(26,18,10,.5);border:none;color:var(--white);width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .25s,background .25s;backdrop-filter:blur(4px);border-radius:2px}
+.room-arrow:hover{background:rgba(26,18,10,.85)}
+.room-arrow.prev{left:14px}
+.room-arrow.next{right:14px}
 .room-card:hover .room-arrow{opacity:1}
 /* Dot indicators */
-.room-dots{position:absolute;bottom:60px;left:0;right:0;display:flex;justify-content:center;gap:5px;z-index:4;opacity:0;transition:opacity .3s}
+.room-dots{position:absolute;bottom:72px;left:0;right:0;display:flex;justify-content:center;gap:5px;z-index:4;opacity:0;transition:opacity .25s}
 .room-card:hover .room-dots{opacity:1}
-.room-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.35);border:none;cursor:pointer;padding:0;transition:background .3s,transform .3s}
-.room-dot.active{background:var(--white);transform:scale(1.3)}
+.room-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.4);border:none;cursor:pointer;padding:0;transition:background .3s,transform .3s}
+.room-dot.active{background:var(--white);transform:scale(1.35)}
 /* Image counter badge */
-.room-img-count{position:absolute;top:16px;right:16px;background:rgba(26,18,10,.55);color:rgba(255,255,255,.8);font-size:8px;letter-spacing:.12em;padding:4px 8px;font-family:'Montserrat',sans-serif;backdrop-filter:blur(4px);z-index:4}
-.room-badge{position:absolute;top:16px;left:16px;background:var(--wood);color:var(--ivory);font-size:9px;letter-spacing:.2em;text-transform:uppercase;padding:5px 12px;font-family:'Montserrat',sans-serif;font-weight:500}
-.room-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,18,10,.95) 0%,rgba(26,18,10,.3) 55%,transparent 100%);transition:opacity .4s}
-.room-info{position:absolute;bottom:0;left:0;right:0;padding:28px 30px;transform:translateY(8px);transition:transform .4s}
+.room-img-count{position:absolute;top:18px;right:18px;background:rgba(26,18,10,.55);color:rgba(255,255,255,.85);font-size:8px;letter-spacing:.14em;padding:5px 10px;font-family:'Montserrat',sans-serif;backdrop-filter:blur(4px);z-index:4;border-radius:2px}
+.room-badge{position:absolute;top:18px;left:18px;background:var(--wood);color:var(--ivory);font-size:8px;letter-spacing:.22em;text-transform:uppercase;padding:5px 14px;font-family:'Montserrat',sans-serif;font-weight:600;border-radius:2px;z-index:4}
+.room-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,8,5,.97) 0%,rgba(10,8,5,.45) 45%,transparent 100%);transition:opacity .4s}
+.room-card:hover .room-overlay{opacity:.85}
+.room-info{position:absolute;bottom:0;left:0;right:0;padding:32px 32px 28px;transform:translateY(6px);transition:transform .35s cubic-bezier(.25,.46,.45,.94)}
 .room-card:hover .room-info{transform:translateY(0)}
-.room-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;color:var(--white);margin-bottom:4px}
-.room-meta{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--beige-deep);margin-bottom:16px}
-.room-actions{display:flex;gap:10px;opacity:0;transition:opacity .3s .1s}
-.room-card:hover .room-actions{opacity:1}
-.room-btn-sm{font-size:9px;letter-spacing:.18em;text-transform:uppercase;font-family:'Montserrat',sans-serif;font-weight:500;padding:9px 18px;border:none;cursor:pointer;transition:var(--transition)}
-.room-btn-explore{background:rgba(255,255,255,.15);color:var(--white);border:1px solid rgba(255,255,255,.3)}
-.room-btn-explore:hover{background:rgba(255,255,255,.25)}
+.room-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--white);margin-bottom:5px;line-height:1.2}
+.room-meta{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--beige-deep);margin-bottom:14px;opacity:.85}
+.room-actions{display:flex;gap:10px;transform:translateY(6px);opacity:0;transition:opacity .25s .08s,transform .3s .08s}
+.room-card:hover .room-actions{opacity:1;transform:translateY(0)}
+.room-btn-sm{font-size:9px;letter-spacing:.18em;text-transform:uppercase;font-family:'Montserrat',sans-serif;font-weight:500;padding:11px 22px;border:none;cursor:pointer;transition:background .25s,transform .2s;border-radius:2px}
+.room-btn-sm:active{transform:scale(.97)}
 .room-btn-book{background:var(--wood);color:var(--ivory)}
 .room-btn-book:hover{background:var(--wood-dark)}
 
@@ -285,12 +284,33 @@ footer{background:var(--charcoal);padding:70px 0 32px}
 .footer-links a:hover{color:var(--wood-light)}
 .footer-bottom{display:flex;justify-content:space-between;font-size:.72rem;color:rgba(255,255,255,.25)}
 
+/* ── STICKY BOOKING BAR ── */
+#sticky-bar{position:fixed;bottom:0;left:0;right:0;z-index:850;background:rgba(26,18,10,.96);backdrop-filter:blur(12px);border-top:1px solid rgba(139,111,71,.25);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px;transform:translateY(100%);transition:transform .4s cubic-bezier(.25,.46,.45,.94)}
+#sticky-bar.show{transform:translateY(0)}
+.sticky-bar-left{display:flex;align-items:center;gap:28px}
+.sticky-bar-stat{text-align:center}
+.sticky-bar-stat strong{display:block;font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--beige-deep);line-height:1}
+.sticky-bar-stat span{font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+.sticky-bar-divider{width:1px;height:32px;background:rgba(255,255,255,.1)}
+.sticky-bar-cta{display:flex;align-items:center;gap:12px}
+.sticky-bar-label{font-size:10px;letter-spacing:.12em;color:rgba(255,255,255,.5)}
+.sticky-bar-btn{background:var(--wood);color:var(--ivory);border:none;padding:12px 28px;font-size:9px;letter-spacing:.2em;text-transform:uppercase;font-family:'Montserrat',sans-serif;font-weight:500;cursor:pointer;transition:background .25s,transform .2s;white-space:nowrap;border-radius:2px}
+.sticky-bar-btn:hover{background:var(--wood-dark)}
+.sticky-bar-btn:active{transform:scale(.97)}
+
+/* ── SCROLL REVEAL ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .55s ease,transform .55s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ── PARALLAX SECTIONS ── */
+.hero-bg{will-change:transform}
+.parallax-bg{will-change:transform}
+
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
   .container{padding:0 24px}
   .about-grid,.loc-grid,.exp-grid,.reviews-grid,.footer-top{grid-template-columns:1fr}
   .rooms-grid{grid-template-columns:1fr}
-  .room-card:first-child,.room-card:nth-child(5){grid-column:auto;min-height:260px}
   .fac-grid{grid-template-columns:repeat(3,1fr)}
   .fac-item:nth-child(3n){border-right:none}
   .about-imgs{height:320px}
@@ -299,9 +319,17 @@ footer{background:var(--charcoal);padding:70px 0 32px}
   .spotlight-left{padding:40px 24px}
   .spotlight-right{padding:32px 24px}
   section{padding:70px 0}
-  #price-badge{bottom:16px;right:16px}
-  #price-panel{width:300px}
   .perks-grid{grid-template-columns:1fr}
+  #sticky-bar{padding:12px 20px;gap:12px}
+  .sticky-bar-left{gap:14px}
+  .sticky-bar-stat strong{font-size:1rem}
+  .sticky-bar-label{display:none}
+}
+@media(max-width:480px){
+  .rooms-grid{gap:10px}
+  .room-card{aspect-ratio:4/3}
+  .room-name{font-size:1.2rem}
+  #sticky-bar .sticky-bar-left{display:none}
 }
 </style>
 </head>
@@ -365,7 +393,7 @@ footer{background:var(--charcoal);padding:70px 0 32px}
 <!-- ROOMS -->
 <section class="rooms-section" id="rooms">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div class="rule-center"><span class="label" id="rooms-label">Explore</span></div>
       <h2 id="rooms-title">Our Rooms &amp; <em>Suites</em></h2>
       <p id="rooms-sub">From 42 to 85 sqm — every suite features a private balcony, separate lounge, and curated amenities. Select a suite to compare live rates.</p>
@@ -425,7 +453,7 @@ footer{background:var(--charcoal);padding:70px 0 32px}
 <!-- FACILITIES -->
 <section class="facilities-section" id="facilities">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div class="rule-center"><span class="label">Why Choose Us</span></div>
       <h2>Most Popular <em>Facilities</em></h2>
     </div>
@@ -486,47 +514,47 @@ footer{background:var(--charcoal);padding:70px 0 32px}
 <!-- EXPERIENCE -->
 <section class="exp-section">
   <div class="container">
-    <div class="section-head" style="text-align:left">
+    <div class="section-head reveal" style="text-align:left">
       <div style="margin-bottom:14px"><span class="label" style="color:var(--wood-light)">The Pleasure of Luxury</span></div>
       <h2 style="color:var(--beige);font-size:clamp(2rem,3.5vw,3rem);font-weight:300">Popular <em style="color:var(--wood-light)">Experiences</em></h2>
     </div>
     <div class="exp-grid">
-      <div class="exp-card">
+      <div class="exp-card reveal">
         <span class="exp-num">01</span>
         <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--wood-light)" stroke-width="1.2"><path d="M2 12h20M2 12c0 5.523 4.477 10 10 10S22 17.523 22 12M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10"/><circle cx="12" cy="12" r="3"/></svg>
         <h3>Outdoor Pool &amp; Jacuzzi</h3>
         <p>Dive into relaxation at our lagoon-style pool with built-in Jacuzzi, surrounded by tropical gardens and sunbeds.</p>
         <p class="exp-blockquote">Where relaxation takes the plunge</p>
       </div>
-      <div class="exp-card">
+      <div class="exp-card reveal">
         <span class="exp-num">02</span>
         <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--wood-light)" stroke-width="1.2"><path d="M12 2a5 5 0 0 1 5 5c0 3-5 9-5 9S7 10 7 7a5 5 0 0 1 5-5z"/><path d="M4 22c0-4 3.6-7 8-7s8 3 8 7"/></svg>
         <h3>Gaya Wellness &amp; Spa</h3>
         <p>Renew your mind and body with traditional Thai massage, aromatherapy, and tailored wellness programmes.</p>
         <p class="exp-blockquote">Renew, indulge, rejuvenate</p>
       </div>
-      <div class="exp-card">
+      <div class="exp-card reveal">
         <span class="exp-num">03</span>
         <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--wood-light)" stroke-width="1.2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
         <h3>Restaurant &amp; Dining</h3>
         <p>Savour the moment at our restaurant where every dish tells a story — from fresh Thai cuisine to international favourites.</p>
         <p class="exp-blockquote">Flavours that unite, every dish a delight</p>
       </div>
-      <div class="exp-card">
+      <div class="exp-card reveal">
         <span class="exp-num">04</span>
         <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--wood-light)" stroke-width="1.2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
         <h3>Fitness Centre &amp; Kids Club</h3>
         <p>Stay active in our well-equipped gym or let the little ones enjoy supervised activities at the Kids Club.</p>
         <p class="exp-blockquote">Empowering every member of your family</p>
       </div>
-      <div class="exp-card">
+      <div class="exp-card reveal">
         <span class="exp-num">05</span>
         <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--wood-light)" stroke-width="1.2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
         <h3>Convention Hall</h3>
         <p>Where visions unfold and ideas take centre stage — our fully equipped conference facility accommodates all event sizes.</p>
         <p class="exp-blockquote">Ideas that take centre stage</p>
       </div>
-      <div class="exp-card" style="background:rgba(139,111,71,.12)">
+      <div class="exp-card reveal" style="background:rgba(139,111,71,.12)">
         <span class="exp-num" style="color:rgba(184,150,106,.25)">06</span>
         <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--wood-light)" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
         <h3>Book Direct — Best Rate</h3>
@@ -542,26 +570,26 @@ footer{background:var(--charcoal);padding:70px 0 32px}
 <!-- REVIEWS -->
 <section class="reviews-section">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div class="rule-center"><span class="label">Guest Stories</span></div>
       <h2>What Our Guests <em>Say</em></h2>
     </div>
     <div class="reviews-grid">
-      <div class="review-card">
+      <div class="review-card reveal">
         <div class="review-mark">"</div>
         <div class="review-stars">★★★★★</div>
         <p class="review-text">We had a wonderful experience staying at this hotel. The rooms were very spacious and the staff were very friendly. Would definitely recommend this place for a stay in Phuket.</p>
         <div class="review-author">Liya</div>
         <div class="review-source">Google Review</div>
       </div>
-      <div class="review-card">
+      <div class="review-card reveal">
         <div class="review-mark">"</div>
         <div class="review-stars">★★★★☆</div>
         <p class="review-text">Very close to all the main attractions, extremely value for money. One of the best places I have stayed in Phuket. The staff are so friendly, they always have a smile on their face.</p>
         <div class="review-author">Mithun Nataraj</div>
         <div class="review-source">Google Review</div>
       </div>
-      <div class="review-card">
+      <div class="review-card reveal">
         <div class="review-mark">"</div>
         <div class="review-stars">★★★★★</div>
         <p class="review-text">The pool area is stunning and the suites are huge compared to other hotels at this price. Loved the Gaya Spa — an absolute highlight of our Phuket trip. We will return!</p>
@@ -575,7 +603,7 @@ footer{background:var(--charcoal);padding:70px 0 32px}
 <!-- LOCATION -->
 <section class="loc-section" id="location">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div class="rule-center"><span class="label">Find Us</span></div>
       <h2>Perfectly Located in <em>Patong</em></h2>
     </div>
@@ -664,6 +692,21 @@ footer{background:var(--charcoal);padding:70px 0 32px}
     </div>
   </div>
 </footer>
+
+<!-- STICKY BOOKING BAR -->
+<div id="sticky-bar">
+  <div class="sticky-bar-left">
+    <div class="sticky-bar-stat"><strong>294</strong><span>Suites</span></div>
+    <div class="sticky-bar-divider"></div>
+    <div class="sticky-bar-stat"><strong>4.1★</strong><span>Google</span></div>
+    <div class="sticky-bar-divider"></div>
+    <div class="sticky-bar-stat"><strong>650m</strong><span>To Beach</span></div>
+  </div>
+  <div class="sticky-bar-cta">
+    <span class="sticky-bar-label">Best rate guaranteed when booking direct</span>
+    <a href="https://hotels.cloudbeds.com/reservation/q4GFCr" target="_blank" class="sticky-bar-btn">Book Direct</a>
+  </div>
+</div>
 
 <!-- LIGHTBOX -->
 <div id="lightbox">
@@ -1067,8 +1110,53 @@ function stepSlide(roomId, dir, e) {
 }
 
 
-// Nav scroll
-window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('solid',scrollY>50));
+// Nav scroll + sticky bar + parallax + scroll reveal
+const nav = document.getElementById('nav');
+const stickyBar = document.getElementById('sticky-bar');
+const heroBg = document.querySelector('.hero-bg');
+const revealEls = document.querySelectorAll('.reveal');
+const roomCards = document.querySelectorAll('.room-card');
+
+// Intersection Observer for reveal + room cards
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+revealEls.forEach(el => observer.observe(el));
+
+// Stagger room cards
+roomCards.forEach((card, i) => {
+  card.style.transitionDelay = `${(i % 2) * 80}ms`;
+  observer.observe(card);
+});
+
+let ticking = false;
+window.addEventListener('scroll', () => {
+  if (ticking) return;
+  requestAnimationFrame(() => {
+    const y = window.scrollY;
+
+    // Nav
+    nav.classList.toggle('solid', y > 50);
+
+    // Sticky bar — show after hero
+    const heroH = document.querySelector('.hero')?.offsetHeight || 600;
+    stickyBar.classList.toggle('show', y > heroH * 0.6);
+
+    // Parallax hero
+    if (heroBg && y < window.innerHeight) {
+      heroBg.style.transform = `translateY(${y * 0.35}px)`;
+    }
+
+    ticking = false;
+  });
+  ticking = true;
+});
 
 // Exit intent
 let exitDone=false;
