@@ -103,7 +103,7 @@ section{padding:100px 0}
 /* ── ROOMS ── */
 .rooms-section{background:var(--beige);padding-top:80px;padding-bottom:80px}
 .rooms-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
-.room-card{position:relative;overflow:hidden;background:var(--charcoal);aspect-ratio:16/9;cursor:pointer;border-radius:2px;box-shadow:0 4px 24px rgba(74,55,40,0.10)}
+.room-card{position:relative;overflow:hidden;background:var(--charcoal);aspect-ratio:4/3;cursor:pointer;border-radius:2px;box-shadow:0 4px 24px rgba(74,55,40,0.10)}
 /* Scroll reveal */
 .room-card{opacity:0;transform:translateY(32px);transition:opacity .55s ease,transform .55s ease,box-shadow .4s}
 .room-card.visible{opacity:1;transform:translateY(0)}
@@ -331,7 +331,7 @@ footer{background:var(--charcoal);padding:70px 0 32px}
 }
 @media(max-width:480px){
   .rooms-grid{gap:10px}
-  .room-card{aspect-ratio:4/3}
+  .room-card{aspect-ratio:3/2}
   .room-name{font-size:1.2rem}
 }
 </style>
@@ -838,8 +838,8 @@ const CONFIG = {
     {id:'deluxe-king-city', name:'Deluxe Suite King — City View', size:'42 sqm',
       features:['King Bed','Private Balcony','Separate Lounge','City View','Kitchenette','Free WiFi'],
       imgs:[
-        'images/room-deluxesuiteking-bedroom (10).jpg',
         'images/room-deluxesuiteking-bedroom (11).JPG',
+        'images/room-deluxesuiteking-bedroom (10).jpg',
         'images/room-deluxesuiteking-bedroom (12).jpg',
         'images/room-deluxesuite-bedroom (3).JPG',
         'images/room-deluxesuite-bedroom (5).JPG',
@@ -860,7 +860,7 @@ const CONFIG = {
       imgs:[
         'images/room-deluxesuitetwin-bedroom (1).JPG',
         'images/room-deluxesuitetwin-bedroom (2).JPG',
-	'images/room-deluxesuite-bedroom (6).JPG',
+	      'images/room-deluxesuite-bedroom (6).JPG',
         'images/room-deluxesuite-bedroom (7).JPG',
         'images/room-deluxesuite-bedroom (3).JPG',
         'images/room-deluxesuite-bedroom (5).JPG',
@@ -868,9 +868,9 @@ const CONFIG = {
     {id:'deluxe-twin-pool', name:'Deluxe Suite Twin — Pool View', size:'42 sqm',
       features:['Twin Beds','Private Balcony','Separate Lounge','Pool View','Kitchenette','Free WiFi'],
       imgs:[
-        'images/room-deluxesuitetwin-bedroom (1).JPG',
         'images/room-deluxesuitetwin-bedroom (2).JPG',
-	'images/room-deluxesuite-bedroom (3).JPG',
+        'images/room-deluxesuitetwin-bedroom (1).JPG',
+	      'images/room-deluxesuite-bedroom (3).JPG',
         'images/room-deluxesuite-bedroom (5).JPG',
         'images/room-deluxesuite-bedroom (6).JPG',
         'images/room-deluxesuite-bedroom (7).JPG',
@@ -878,78 +878,78 @@ const CONFIG = {
     {id:'exec-city',        name:'Executive Suite — City View',   size:'55 sqm',
       features:['King Bed','Luxury Bathtub','Spacious Living Area','City View','Private Balcony','Nespresso Machine'],
       imgs:[
-        'images/room-execsuite-city.JPG',
         'images/room-execsuite-bedroom (4).JPG',
-	'images/room-execsuite-bedroom (6).JPG',
+	      'images/room-execsuite-bedroom (6).JPG',
         'images/room-execsuite-bedroom (8).JPG',
         'images/room-execsuite-bathroom.JPG',
+        'images/room-execsuite-city.JPG',
       ]},
     {id:'exec-pool',        name:'Executive Suite — Pool View',   size:'55 sqm',
       features:['King Bed','Luxury Bathtub','Spacious Living Area','Pool View','Private Balcony','Nespresso Machine'],
       imgs:[
-	'images/room-execsuite-bedroom (4).JPG',
-        'images/room-execsuite-bedroom (6).JPG',
+	      'images/room-execsuite-bedroom (6).JPG',
+        'images/room-execsuite-bedroom (4).JPG',
         'images/room-execsuite-bedroom (8).JPG',
         'images/room-execsuite-bathroom.JPG',
       ]},
     {id:'classic-pool',     name:'Classic Suite — Pool Access',   size:'48 sqm',
       features:['Direct Pool Access','King Bed','Private Balcony','Separate Lounge','Kitchenette','Free WiFi'],
       imgs:[
-        'images/room-classicsuite-pool.JPG',
         'images/room-classicsuite-bedroom (2).JPG',
         'images/room-classicsuite-bedroom (3).JPG',
         'images/room-classicsuite-bedroom (4).JPG',
         'images/room-classicsuite-bedroom (5).JPG',
         'images/room-classicsuite-bedroom (6).JPG',
         'images/room-classicsuite-bedroom (7).JPG',
+        'images/room-classicsuite-pool.JPG',
       ]},
     {id:'family-city',      name:'Family Suite — City View',      size:'65 sqm',
       features:['2 Bedrooms','Kids Club Access','City View','Private Balcony','Separate Lounge','Baby Cot Available'],
       imgs:[
-        'images/room-famsuite-city.JPG',
-        'images/room-famsuite-bedroom (1).JPG',
         'images/room-famsuite-bedroom (3).JPG',
         'images/room-famsuite-bedroom (4).JPG',
+        'images/room-famsuite-bedroom (1).JPG',
+        'images/room-famsuite-city.JPG',
         'images/room-famsuite-bathroom.JPG',
       ]},
     {id:'family-pool',      name:'Family Suite — Pool View',      size:'65 sqm',
       features:['2 Bedrooms','Kids Club Access','Pool View','Private Balcony','Separate Lounge','Baby Cot Available'],
       imgs:[
-        'images/room-famsuite-pool.JPG',
         'images/room-famsuite-bedroom (1).JPG',
         'images/room-famsuite-bedroom (3).JPG',
         'images/room-famsuite-bedroom (4).JPG',
+        'images/room-famsuite-pool.JPG',
         'images/room-famsuite-bathroom.JPG',
       ]},
     {id:'2bed-city',        name:'Two Bedroom Suite — City View', size:'75 sqm',
       features:['2 Bedrooms','Full Kitchen','City View','2 Bathrooms','Private Balcony','Living & Dining Area'],
       imgs:[
-        'images/room-twobedsuite-city.JPG',
-        'images/room-twobedsuite-bedroom (2).JPG',
         'images/room-twobedsuite-bedroom (3).JPG',
+        'images/room-twobedsuite-bedroom (2).JPG',
         'images/room-twobedsuite-bedroom (4).JPG',
+        'images/room-twobedsuite-city.JPG',
       ]},
     {id:'2bed-pool',        name:'Two Bedroom Suite — Pool View', size:'75 sqm',
       features:['2 Bedrooms','Full Kitchen','Pool View','2 Bathrooms','Private Balcony','Living & Dining Area'],
       imgs:[
-        'images/room-twobedsuite-pool.JPG',
         'images/room-twobedsuite-bedroom (2).JPG',
         'images/room-twobedsuite-bedroom (3).JPG',
         'images/room-twobedsuite-bedroom (4).JPG',
+        'images/room-twobedsuite-pool.JPG',
       ]},
     {id:'penthouse',        name:'Penthouse — Private Pool',      size:'85 sqm',
       features:['Private Rooftop Pool','2 Bedrooms','Panoramic Views','Full Kitchen','Butler Service','2 Bathrooms'],
       imgs:[
-        'images/room-penthouse-pool.JPG',
-        'images/room-penthouse-pool lobby.JPG',
-        'images/room-penthouse-lobby (1).JPG',
-        'images/room-penthouse-lobby (2).JPG',
-        'images/room-penthouse-lobby (3).JPG',
         'images/room-penthouse-king (1).JPG',
         'images/room-penthouse-king (2).JPG',
         'images/room-penthouse-twin (1).JPG',
         'images/room-penthouse-twin (2).JPG',
         'images/room-penthouse-twin (5).JPG',
+        'images/room-penthouse-pool.JPG',
+        'images/room-penthouse-pool lobby.JPG',
+        'images/room-penthouse-lobby (1).JPG',
+        'images/room-penthouse-lobby (2).JPG',
+        'images/room-penthouse-lobby (3).JPG',
         'images/room-penthouse-bath.JPG',
       ]},
   ]
