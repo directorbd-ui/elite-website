@@ -190,11 +190,13 @@ section{padding:100px 0}
 .video-wrap{position:relative;border-radius:2px;overflow:hidden;background:#000;box-shadow:0 20px 80px rgba(0,0,0,.5)}
 .video-wrap video{width:100%;display:block;max-height:70vh;object-fit:cover}
 .video-play-btn{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(10,8,5,.35);border:none;cursor:pointer;transition:background .3s}
-.video-play-btn:hover{background:rgba(10,8,5,.5)}
-.video-play-btn svg{width:72px;height:72px;background:rgba(139,111,71,.85);border-radius:50%;padding:20px;transition:transform .25s,background .25s}
-.video-play-btn:hover svg{transform:scale(1.08);background:var(--wood)}
+.video-play-btn:hover{background:rgba(10,8,5,.45)}
+.video-play-btn .play-icon{width:72px;height:72px;background:rgba(139,111,71,.85);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:transform .25s,background .25s,opacity .25s;pointer-events:none}
+.video-play-btn:hover .play-icon{transform:scale(1.08);background:var(--wood)}
 .video-play-btn.playing{background:transparent}
-.video-play-btn.playing svg{display:none}
+.video-play-btn.playing:hover{background:rgba(10,8,5,.25)}
+.video-play-btn.playing .play-icon{opacity:0}
+.video-play-btn.playing:hover .play-icon{opacity:1}
 
 /* ── FACILITIES ── */
 .facilities-section{background:var(--beige-mid)}
@@ -206,6 +208,12 @@ section{padding:100px 0}
 .fac-label{position:absolute;bottom:0;left:0;right:0;padding:20px 18px;display:flex;align-items:flex-end;gap:10px}
 .fac-icon{width:30px;height:30px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
 .fac-name{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.9);line-height:1.5;font-weight:500;font-family:'Montserrat',sans-serif}
+
+/* ── FAC OTHER SERVICES ── */
+.fac-other{display:flex;align-items:center;gap:32px;margin-top:24px;padding:18px 28px;border:1px solid var(--rule);background:var(--white);flex-wrap:wrap}
+.fac-other-label{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--wood);font-weight:600;font-family:'Montserrat',sans-serif;white-space:nowrap}
+.fac-other-items{display:flex;flex-wrap:wrap;gap:10px 28px}
+.fac-other-items span{display:flex;align-items:center;gap:7px;font-size:.78rem;color:var(--muted);font-family:'Montserrat',sans-serif}
 
 /* ── EXPERIENCE ── */
 .exp-section{background:var(--charcoal)}
@@ -455,7 +463,9 @@ footer{background:var(--charcoal);padding:70px 0 32px}
     <div class="video-wrap reveal">
       <video id="hotel-video" src="images/hotel-video.mp4" poster="images/pool (1).JPG" playsinline preload="metadata"></video>
       <button class="video-play-btn" id="video-play-btn" onclick="toggleVideo()" aria-label="Play video">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="var(--ivory)" stroke="none"><polygon points="5,3 19,12 5,21"/></svg>
+        <div class="play-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="var(--ivory)" stroke="none"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
       </button>
     </div>
   </div>
@@ -510,28 +520,39 @@ footer{background:var(--charcoal);padding:70px 0 32px}
         </div>
       </div>
       <div class="fac-item reveal">
-        <img src="images/gaya spa (2).JPG" alt="Coral Restaurant" loading="lazy">
+        <img src="images/coral_restaurant.JPG" alt="Coral Restaurant" loading="lazy">
         <div class="fac-overlay"></div>
         <div class="fac-label">
-          <div class="fac-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="1.4"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></div>
-          <div class="fac-name">Coral Restaurant &amp; Pool Bar</div>
+          <div class="fac-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="1.4"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+          <div class="fac-name">Coral Restaurant</div>
         </div>
       </div>
       <div class="fac-item reveal">
-        <img src="images/pool (2).JPG" alt="Free Parking" loading="lazy">
+        <img src="images/pool_bar.JPG" alt="Pool Bar" loading="lazy">
         <div class="fac-overlay"></div>
         <div class="fac-label">
-          <div class="fac-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="1.4"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <div class="fac-name">Free Private Parking</div>
+          <div class="fac-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="1.4"><path d="M8 22h8M12 11v11M2 2l10 11L22 2H2z"/></svg></div>
+          <div class="fac-name">Pool Bar</div>
         </div>
       </div>
       <div class="fac-item reveal">
-        <img src="images/kids club (2).JPG" alt="Tour Desk & Concierge" loading="lazy">
+        <img src="images/conference_hall.JPG" alt="Conference Hall" loading="lazy">
         <div class="fac-overlay"></div>
         <div class="fac-label">
-          <div class="fac-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="1.4"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
-          <div class="fac-name">Tour Desk &amp; Concierge</div>
+          <div class="fac-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="1.4"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3M9 21h10a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2z"/></svg></div>
+          <div class="fac-name">Conference Hall</div>
         </div>
+      </div>
+    </div>
+    <!-- Other services -->
+    <div class="fac-other reveal">
+      <span class="fac-other-label">Also included</span>
+      <div class="fac-other-items">
+        <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Free Private Parking</span>
+        <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Tour Desk &amp; Concierge</span>
+        <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Airport Shuttle</span>
+        <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Room Service</span>
+        <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Free WiFi Throughout</span>
       </div>
     </div>
   </div>
@@ -1175,8 +1196,12 @@ document.getElementById('exit-overlay').addEventListener('click',e=>{if(e.target
 function toggleVideo(){
   const v=document.getElementById('hotel-video');
   const btn=document.getElementById('video-play-btn');
-  if(v.paused){v.play();btn.classList.add('playing');}
-  else{v.pause();btn.classList.remove('playing');}
+  if(v.paused){
+    v.play().then(()=>btn.classList.add('playing')).catch(()=>{});
+  } else {
+    v.pause();
+    btn.classList.remove('playing');
+  }
 }
 document.getElementById('hotel-video')?.addEventListener('ended',()=>{
   document.getElementById('video-play-btn').classList.remove('playing');
