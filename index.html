@@ -65,6 +65,22 @@ svg.icon{flex-shrink:0;stroke-linecap:round;stroke-linejoin:round}
 #nav.solid .nav-links a:hover{color:var(--wood)}
 .nav-cta{background:var(--wood)!important;color:var(--ivory)!important;padding:10px 24px;font-size:10px!important;letter-spacing:.18em!important;font-weight:500!important;transition:background .3s!important}
 .nav-cta:hover{background:var(--wood-dark)!important}
+/* hamburger */
+.nav-burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;z-index:1001}
+.nav-burger span{display:block;width:24px;height:2px;background:var(--white);transition:background .3s,transform .3s,opacity .3s}
+#nav.solid .nav-burger span{background:var(--charcoal)}
+.nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-burger.open span:nth-child(2){opacity:0}
+.nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:768px){
+  .nav-inner{padding:0 20px}
+  .nav-burger{display:flex}
+  .nav-links{display:none;position:fixed;inset:0;flex-direction:column;align-items:center;justify-content:center;gap:32px;background:rgba(26,18,10,.96);backdrop-filter:blur(10px)}
+  .nav-links.open{display:flex}
+  .nav-links a{font-size:13px;color:rgba(255,255,255,.85)!important}
+  .nav-links a:hover{color:var(--wood-light)!important}
+  .nav-cta{padding:12px 32px!important}
+}
 
 /* ── HERO ── */
 .hero{height:100vh;min-height:680px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
@@ -251,8 +267,9 @@ section{padding:100px 0}
 .loc-item a:hover{text-decoration:underline}
 
 /* ── EXIT POPUP ── */
-#exit-overlay{position:fixed;inset:0;background:rgba(26,18,10,.88);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(6px)}
+#exit-overlay{position:fixed;inset:0;background:rgba(26,18,10,.88);z-index:9999;display:none;align-items:flex-start;justify-content:center;padding:20px;backdrop-filter:blur(6px);overflow-y:auto}
 #exit-overlay.open{display:flex;animation:fadeIn .35s ease}
+@media(min-width:480px){#exit-overlay{align-items:center}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 .exit-modal{background:var(--ivory);max-width:580px;width:100%;animation:popIn .4s cubic-bezier(.34,1.4,.64,1) both;overflow:hidden;position:relative}
 @keyframes popIn{from{opacity:0;transform:scale(.92) translateY(16px)}to{opacity:1;transform:scale(1) translateY(0)}}
@@ -347,13 +364,16 @@ footer{background:var(--charcoal);padding:70px 0 32px}
 <nav id="nav">
   <div class="nav-inner">
     <a href="#" class="nav-logo"><span>Elite</span> Suites Patong</a>
-    <ul class="nav-links">
-      <li><a href="#rooms">Suites</a></li>
-      <li><a href="#facilities">Facilities</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#location">Location</a></li>
-      <li><a href="https://www.elitesuitespatong.com/gayaspa">Gaya Spa</a></li>
-      <li><a href="https://hotels.cloudbeds.com/reservation/q4GFCr" target="_blank" class="nav-cta">Book Direct</a></li>
+    <button class="nav-burger" id="nav-burger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#rooms" onclick="closeMenu()">Suites</a></li>
+      <li><a href="#facilities" onclick="closeMenu()">Facilities</a></li>
+      <li><a href="#about" onclick="closeMenu()">About</a></li>
+      <li><a href="#location" onclick="closeMenu()">Location</a></li>
+      <li><a href="https://www.elitesuitespatong.com/gayaspa" onclick="closeMenu()">Gaya Spa</a></li>
+      <li><a href="https://hotels.cloudbeds.com/reservation/q4GFCr" target="_blank" class="nav-cta" onclick="closeMenu()">Book Direct</a></li>
     </ul>
   </div>
 </nav>
@@ -1144,6 +1164,16 @@ function stepSlide(roomId, dir, e) {
 }
 
 
+// Hamburger menu
+const burger=document.getElementById('nav-burger');
+const navLinks=document.getElementById('nav-links');
+function closeMenu(){burger.classList.remove('open');navLinks.classList.remove('open');document.body.style.overflow='';}
+burger.addEventListener('click',()=>{
+  const open=navLinks.classList.toggle('open');
+  burger.classList.toggle('open',open);
+  document.body.style.overflow=open?'hidden':'';
+});
+
 // Nav scroll + sticky bar + parallax + scroll reveal
 const nav = document.getElementById('nav');
 const heroBg = document.querySelector('.hero-bg');
@@ -1191,7 +1221,18 @@ window.addEventListener('scroll', () => {
 let exitDone=false;
 function showExit(){if(exitDone||sessionStorage.getItem('esp_exit'))return;exitDone=true;sessionStorage.setItem('esp_exit','1');document.getElementById('exit-overlay').classList.add('open');}
 function closeExit(){document.getElementById('exit-overlay').classList.remove('open');}
+// Desktop: mouse leaves top of viewport
 document.addEventListener('mouseleave',e=>{if(e.clientY<=4)showExit();});
+// Mobile: trigger on scroll-up after user has scrolled down 40% of page
+(function(){
+  let lastY=0,triggered=false;
+  window.addEventListener('scroll',()=>{
+    const y=window.scrollY;
+    const threshold=document.body.scrollHeight*0.4;
+    if(!triggered&&y>threshold&&y<lastY){triggered=true;showExit();}
+    lastY=y;
+  },{passive:true});
+})();
 document.getElementById('exit-overlay').addEventListener('click',e=>{if(e.target===document.getElementById('exit-overlay'))closeExit();});
 
 // ── VIDEO ─────────────────────────────────────────────────────────────────────
