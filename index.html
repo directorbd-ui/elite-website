@@ -80,6 +80,9 @@ svg.icon{flex-shrink:0;stroke-linecap:round;stroke-linejoin:round}
   .nav-links a{font-size:13px;color:rgba(255,255,255,.85)!important}
   .nav-links a:hover{color:var(--wood-light)!important}
   .nav-cta{padding:12px 32px!important}
+  /* Always show Book Direct in nav bar on mobile */
+  .nav-links li:last-child{display:block!important;position:fixed;top:12px;right:60px;z-index:1002}
+  .nav-links.open li:last-child{position:static}
 }
 
 /* ── HERO ── */
