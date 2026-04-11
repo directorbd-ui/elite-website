@@ -1367,15 +1367,10 @@ const PERK_CONFIG = {
   'fnb-bogo': { code:'ESP-BOGO',    label:'Buy 1 Get 1 Free — F&B',         note:'One-time use only. Per room.' }
 };
 
-// ── EMAILJS CONFIG ────────────────────────────────────────────────────────────
-// 1. Sign up free at https://www.emailjs.com
-// 2. Create a service (Gmail/Outlook) and note your Service ID
-// 3. Create an email template using these variables:
-//      {{to_email}}  {{perk_label}}  {{promo_code}}  {{perk_note}}
-// 4. Replace the three placeholder values below with your real IDs
-const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // e.g. 'service_abc123'
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // e.g. 'template_xyz456'
-const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';   // e.g. 'abcDEFghiJKL'
+// ── MAILER BACKEND URL ────────────────────────────────────────────────────────
+// After deploying backend/server.js to Render, replace this with your Render URL
+// e.g. 'https://elite-suites-mailer.onrender.com'
+const MAILER_URL = 'YOUR_RENDER_URL';
 
 function pickPerk(el){document.querySelectorAll('.perk').forEach(p=>p.classList.remove('on'));el.classList.add('on');el.querySelector('input').checked=true;}
 
@@ -1393,20 +1388,17 @@ function claimPerk(){
   document.getElementById('success-code').textContent=cfg.code;
   document.getElementById('success-offer-note').textContent=cfg.note;
 
-  // Send email via EmailJS (only runs once credentials are configured)
-  if(EMAILJS_PUBLIC_KEY!=='YOUR_PUBLIC_KEY' && typeof emailjs!=='undefined'){
-    emailjs.init(EMAILJS_PUBLIC_KEY);
-    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-      to_email:   email,
-      perk_label: cfg.label,
-      promo_code: cfg.code,
-      perk_note:  cfg.note
+  // Send email via backend (runs once MAILER_URL is set to your Render URL)
+  if(MAILER_URL !== 'YOUR_RENDER_URL'){
+    fetch(MAILER_URL + '/send-promo', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({email, perk})
     }).catch(()=>{});
   }
   console.log('Lead:',{email,perk,code:cfg.code});
 }
 </script>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="blog-posts.js"></script>
 <script>
 // ── BLOG CARD RENDERER ────────────────────────────────────────────────────────
