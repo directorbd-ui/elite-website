@@ -826,58 +826,59 @@ footer{background:var(--charcoal);padding:70px 0 32px}
       </div>
     </div>
     <div id="exit-body" class="exit-body">
-      <p class="exit-sub">Book direct and claim an exclusive perk tailored to your stay. Choose one:</p>
+      <p class="exit-sub">Book direct and claim an exclusive perk for your stay. Choose one:</p>
       <div class="perks-grid">
         <label class="perk" onclick="pickPerk(this)">
-          <input type="radio" name="perk" value="10off">
+          <input type="radio" name="perk" value="comp-spa">
           <div class="perk-top">
-            <div class="perk-icon-wrap"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-            <span class="perk-label">10% Off Your Stay</span>
+            <div class="perk-icon-wrap"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="1.5"><path d="M12 2a5 5 0 0 1 5 5c0 5-5 11-5 11S7 12 7 7a5 5 0 0 1 5-5z"/><circle cx="12" cy="7" r="2"/></svg></div>
+            <span class="perk-label">Complimentary Spa</span>
           </div>
-          <p class="perk-desc">Discount applied via promo code at checkout</p>
+          <p class="perk-desc">1 hour free spa per room — min. 10-night stay. Claim at check-in.</p>
           <div class="perk-check"></div>
         </label>
         <label class="perk" onclick="pickPerk(this)">
-          <input type="radio" name="perk" value="breakfast">
+          <input type="radio" name="perk" value="fnb-10">
           <div class="perk-top">
             <div class="perk-icon-wrap"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="1.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
-            <span class="perk-label">Free Breakfast for 2</span>
+            <span class="perk-label">10% Off F&amp;B</span>
           </div>
-          <p class="perk-desc">Every morning of your stay, included</p>
+          <p class="perk-desc">10% off food &amp; beverage. One-time use, not combinable with other offers.</p>
           <div class="perk-check"></div>
         </label>
         <label class="perk" onclick="pickPerk(this)">
-          <input type="radio" name="perk" value="cocktail">
+          <input type="radio" name="perk" value="spa-10">
+          <div class="perk-top">
+            <div class="perk-icon-wrap"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+            <span class="perk-label">10% Off Spa</span>
+          </div>
+          <p class="perk-desc">10% off all spa services at Gaya Wellness. Redeemable one time only.</p>
+          <div class="perk-check"></div>
+        </label>
+        <label class="perk" onclick="pickPerk(this)">
+          <input type="radio" name="perk" value="fnb-bogo">
           <div class="perk-top">
             <div class="perk-icon-wrap"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="1.5"><path d="M8 22h8M12 11v11M2 2l10 11L22 2H2z"/></svg></div>
-            <span class="perk-label">Free Cocktail / Day</span>
+            <span class="perk-label">Buy 1 Get 1 — F&amp;B</span>
           </div>
-          <p class="perk-desc">One cocktail per day, valid up to 4 nights</p>
-          <div class="perk-check"></div>
-        </label>
-        <label class="perk" onclick="pickPerk(this)">
-          <input type="radio" name="perk" value="extranight">
-          <div class="perk-top">
-            <div class="perk-icon-wrap"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></div>
-            <span class="perk-label">Extra Night Deal</span>
-          </div>
-          <p class="perk-desc">Stay 4 nights, pay for 3 + 10% — extra night added</p>
+          <p class="perk-desc">Buy 1 Get 1 Free on food &amp; beverage. Valid for one-time use only.</p>
           <div class="perk-check"></div>
         </label>
       </div>
       <div class="email-row">
         <input type="email" id="exit-email" placeholder="Your email address">
-        <button onclick="claimPerk()">Claim My Perk</button>
+        <button onclick="claimPerk()">Send My Code</button>
       </div>
-      <p class="exit-fine">Your promo code arrives instantly. No spam, unsubscribe anytime.</p>
+      <p class="exit-fine">Your promo code will be emailed to you instantly. All offers are per room. No spam, unsubscribe anytime.</p>
       <span class="exit-skip" onclick="closeExit()">No thanks, I'll pay full price</span>
     </div>
     <div class="exit-success" id="exit-success">
       <svg class="icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--wood)" stroke-width="1.2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
       <h4>Your Perk is Confirmed</h4>
-      <p>We've sent your exclusive code to your inbox. Use it when booking direct to claim your benefit:</p>
+      <p>We've emailed your exclusive promo code. Enter it when booking direct to claim your benefit:</p>
       <div class="promo-display" id="success-code">ESP-XXXX</div>
-      <a href="https://hotels.cloudbeds.com/reservation/q4GFCr" target="_blank" style="display:inline-flex;align-items:center;gap:8px;margin-top:22px;color:var(--wood);font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:500">Book Now
+      <p style="font-size:.72rem;color:var(--muted);margin-top:10px" id="success-offer-note"></p>
+      <a href="https://hotels.cloudbeds.com/reservation/q4GFCr" target="_blank" style="display:inline-flex;align-items:center;gap:8px;margin-top:22px;color:var(--wood);font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:500">Book Now &amp; Apply Code
         <svg class="icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
@@ -1357,21 +1358,55 @@ function initAboutSlideshow(id, interval, startDelay) {
 initAboutSlideshow('about-main-slide', 4000, 0);
 initAboutSlideshow('about-accent-slide', 4000, 2000);
 
+// ── EXIT OFFER CONFIG ─────────────────────────────────────────────────────────
+// Fixed promo codes — set these same codes in Cloudbeds
+const PERK_CONFIG = {
+  'comp-spa': { code:'ESP-COMPSP',  label:'Complimentary Spa (1hr)',         note:'Min. 10-night stay. Claim at check-in. Per room.' },
+  'fnb-10':   { code:'ESP-FNB10',   label:'10% Off Food & Beverage',         note:'One-time use. Not combinable with other offers. Per room.' },
+  'spa-10':   { code:'ESP-SPA10',   label:'10% Off Spa Services',            note:'Redeemable one time only at Gaya Wellness & Spa. Per room.' },
+  'fnb-bogo': { code:'ESP-BOGO',    label:'Buy 1 Get 1 Free — F&B',         note:'One-time use only. Per room.' }
+};
+
+// ── EMAILJS CONFIG ────────────────────────────────────────────────────────────
+// 1. Sign up free at https://www.emailjs.com
+// 2. Create a service (Gmail/Outlook) and note your Service ID
+// 3. Create an email template using these variables:
+//      {{to_email}}  {{perk_label}}  {{promo_code}}  {{perk_note}}
+// 4. Replace the three placeholder values below with your real IDs
+const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // e.g. 'service_abc123'
+const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // e.g. 'template_xyz456'
+const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';   // e.g. 'abcDEFghiJKL'
+
 function pickPerk(el){document.querySelectorAll('.perk').forEach(p=>p.classList.remove('on'));el.classList.add('on');el.querySelector('input').checked=true;}
+
 function claimPerk(){
   const email=document.getElementById('exit-email').value.trim();
   const sel=document.querySelector('.perk.on');
   if(!email||!email.includes('@')){document.getElementById('exit-email').style.borderColor='#c0392b';return;}
   if(!sel){document.querySelectorAll('.perk').forEach(p=>p.style.borderColor='rgba(192,57,43,.4)');return;}
-  const prefixes={'10off':'ESP10',breakfast:'BKFST',cocktail:'CKTL',extranight:'XNITE'};
   const perk=sel.querySelector('input').value;
-  const code=(prefixes[perk]||'ESP')+'-'+Math.random().toString(36).substr(2,4).toUpperCase();
+  const cfg=PERK_CONFIG[perk]||{code:'ESP-OFFER',label:'Special Offer',note:''};
+
+  // Show success screen immediately
   document.getElementById('exit-body').style.display='none';
   document.getElementById('exit-success').style.display='block';
-  document.getElementById('success-code').textContent=code;
-  console.log('Lead:',{email,perk,code});
+  document.getElementById('success-code').textContent=cfg.code;
+  document.getElementById('success-offer-note').textContent=cfg.note;
+
+  // Send email via EmailJS (only runs once credentials are configured)
+  if(EMAILJS_PUBLIC_KEY!=='YOUR_PUBLIC_KEY' && typeof emailjs!=='undefined'){
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+      to_email:   email,
+      perk_label: cfg.label,
+      promo_code: cfg.code,
+      perk_note:  cfg.note
+    }).catch(()=>{});
+  }
+  console.log('Lead:',{email,perk,code:cfg.code});
 }
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="blog-posts.js"></script>
 <script>
 // ── BLOG CARD RENDERER ────────────────────────────────────────────────────────
@@ -1395,6 +1430,12 @@ function claimPerk(){
       </div>
     </article>
   `).join('');
+  // Observe the newly created reveal elements (main observer ran before these existed)
+  if(typeof observer !== 'undefined'){
+    grid.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  } else {
+    grid.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  }
 })();
 </script>
 </body>
