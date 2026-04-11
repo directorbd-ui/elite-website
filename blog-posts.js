@@ -24,7 +24,7 @@ const BLOG_POSTS = [
     title: 'Where Impeccable Cleanliness Meets Heartfelt Thai Hospitality',
     excerpt: 'Nestled in the vibrant heart of Patong, the Elite Hotel offers a sanctuary of comfort and convenience that consistently exceeds guest expectations. ',
     date: 'May 2025',
-    img: 'images/',  // any image already in the images folder
+    img: 'images/lobby (1).JPG',  // any image already in the images folder
     content: `
       <p>Our unwavering commitment to excellence is reflected in the glowing feedback from our valued visitors, who frequently highlight the pillars of our success: exceptional cleanliness, spacious accommodations, and genuinely warm service.
 </p>
