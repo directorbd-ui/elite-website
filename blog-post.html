@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Blog — Elite Suites Patong</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --wood:#8B6F47;--wood-dark:#6B5234;--wood-light:#B8966A;
+  --beige:#F5EFE4;--beige-mid:#EDE3D1;--beige-deep:#D9CBAF;
+  --ivory:#FDFAF5;--white:#FFFFFF;--charcoal:#2A2319;
+  --brown-text:#4A3728;--muted:#8C7B68;
+  --rule:rgba(139,111,71,0.18);
+  --shadow-sm:0 2px 12px rgba(74,55,40,0.08);
+  --shadow-md:0 8px 40px rgba(74,55,40,0.12);
+  --transition:0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Montserrat',sans-serif;background:var(--ivory);color:var(--brown-text);font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif}
+a{text-decoration:none;color:inherit}
+img{display:block;width:100%;object-fit:cover}
+
+/* ── NAV ── */
+#nav{position:fixed;top:0;width:100%;z-index:900;padding:22px 0;transition:var(--transition);background:rgba(253,250,245,.97);backdrop-filter:blur(12px);box-shadow:var(--shadow-sm);border-bottom:1px solid var(--rule)}
+.nav-inner{max-width:1240px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:400;color:var(--charcoal);letter-spacing:.08em}
+.nav-logo span{color:var(--wood)}
+.nav-right{display:flex;align-items:center;gap:28px}
+.nav-back{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:500;display:flex;align-items:center;gap:8px;transition:color .3s}
+.nav-back:hover{color:var(--wood)}
+.nav-cta{background:var(--wood);color:var(--ivory);padding:10px 24px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;transition:background .3s}
+.nav-cta:hover{background:var(--wood-dark)}
+@media(max-width:600px){.nav-inner{padding:0 20px}.nav-back span{display:none}}
+
+/* ── POST HERO ── */
+.post-hero{height:55vh;min-height:360px;position:relative;margin-top:65px;overflow:hidden;background:var(--charcoal)}
+.post-hero-img{width:100%;height:100%;object-fit:cover;opacity:.75}
+.post-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,18,10,.2),rgba(26,18,10,.75))}
+.post-hero-text{position:absolute;bottom:0;left:0;right:0;padding:48px 40px;max-width:860px;margin:0 auto}
+@media(max-width:600px){.post-hero-text{padding:32px 20px}}
+.post-cat{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--wood-light);font-weight:600;font-family:'Montserrat',sans-serif;margin-bottom:14px}
+.post-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:300;color:var(--white);line-height:1.2;margin-bottom:16px}
+.post-date{font-size:.78rem;color:rgba(255,255,255,.55);letter-spacing:.06em}
+
+/* ── POST BODY ── */
+.post-wrap{max-width:760px;margin:0 auto;padding:72px 40px 100px}
+@media(max-width:600px){.post-wrap{padding:48px 20px 80px}}
+.post-body p{font-size:.95rem;color:var(--brown-text);line-height:1.95;margin-bottom:22px}
+.post-body h2{font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:400;color:var(--charcoal);margin:44px 0 16px;padding-bottom:12px;border-bottom:1px solid var(--rule)}
+.post-body ul{margin:0 0 22px 0;padding-left:20px}
+.post-body ul li{font-size:.9rem;color:var(--muted);line-height:1.85;margin-bottom:8px}
+.post-body a{color:var(--wood-dark);border-bottom:1px solid var(--beige-deep);transition:color .3s}
+.post-body a:hover{color:var(--wood)}
+.post-body strong{font-weight:600;color:var(--charcoal)}
+
+/* ── BACK + CTA BAR ── */
+.post-footer-bar{background:var(--beige-mid);border-top:1px solid var(--beige-deep);padding:48px 40px;text-align:center}
+.post-footer-bar h3{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:300;color:var(--charcoal);margin-bottom:10px}
+.post-footer-bar p{font-size:.85rem;color:var(--muted);margin-bottom:28px}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--wood);color:var(--ivory);padding:14px 36px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-family:'Montserrat',sans-serif;font-weight:500;transition:var(--transition);border:none;cursor:pointer}
+.btn-primary:hover{background:var(--wood-dark)}
+.back-link{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:500;transition:color .3s}
+.back-link:hover{color:var(--wood)}
+
+/* ── NOT FOUND ── */
+.not-found{text-align:center;padding:140px 40px}
+.not-found h2{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--charcoal);margin-bottom:12px}
+.not-found p{color:var(--muted);font-size:.9rem;margin-bottom:28px}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><span>Elite</span> Suites Patong</a>
+    <div class="nav-right">
+      <a href="index.html#blog" class="nav-back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        <span>All Posts</span>
+      </a>
+      <a href="https://hotels.cloudbeds.com/reservation/q4GFCr" target="_blank" class="nav-cta">Book Direct</a>
+    </div>
+  </div>
+</nav>
+
+<!-- POST CONTENT (rendered by JS) -->
+<div id="post-root"></div>
+
+<script src="blog-posts.js"></script>
+<script>
+(function(){
+  const slug = new URLSearchParams(window.location.search).get('slug');
+  const root = document.getElementById('post-root');
+  const post = (typeof BLOG_POSTS !== 'undefined') && BLOG_POSTS.find(p => p.slug === slug);
+
+  if(!post){
+    root.innerHTML = `
+      <div class="not-found" style="margin-top:65px">
+        <h2>Post not found</h2>
+        <p>This article may have moved or the link is incorrect.</p>
+        <a href="index.html#blog" class="btn-primary">Back to Blog</a>
+      </div>`;
+    return;
+  }
+
+  // Update page title
+  document.getElementById('page-title').textContent = post.title + ' — Elite Suites Patong';
+
+  root.innerHTML = `
+    <div class="post-hero">
+      <img class="post-hero-img" src="${post.img}" alt="${post.title}">
+      <div class="post-hero-overlay"></div>
+      <div class="post-hero-text">
+        <p class="post-cat">${post.cat}</p>
+        <h1 class="post-title">${post.title}</h1>
+        <p class="post-date">${post.date}</p>
+      </div>
+    </div>
+
+    <div class="post-wrap">
+      <div class="post-body">${post.content}</div>
+    </div>
+
+    <div class="post-footer-bar">
+      <h3>Ready to <em>Experience</em> It Yourself?</h3>
+      <p>Book direct for the guaranteed lowest rate and exclusive perks.</p>
+      <a href="https://hotels.cloudbeds.com/reservation/q4GFCr" target="_blank" class="btn-primary">Reserve Your Suite</a>
+      <br>
+      <a href="index.html#blog" class="back-link">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Back to all posts
+      </a>
+    </div>`;
+})();
+</script>
+</body>
+</html>

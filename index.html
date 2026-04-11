@@ -742,54 +742,7 @@ footer{background:var(--charcoal);padding:70px 0 32px}
       <div class="rule-center"><span class="label">Phuket Insider Guide</span></div>
       <h2>Stories & <em>Tips</em></h2>
     </div>
-    <div class="blog-grid">
-
-      <article class="blog-card reveal">
-        <div class="blog-thumb">
-          <img src="images/pool (1).JPG" alt="Best time to visit Patong Beach" loading="lazy">
-        </div>
-        <div class="blog-body">
-          <span class="blog-cat">Travel Tips</span>
-          <h3 class="blog-title">Best Time to Visit Patong Beach — A Month-by-Month Guide</h3>
-          <p class="blog-excerpt">Phuket's weather shapes every stay. We break down high season, green season, and the sweet spots in between so you can plan the perfect trip.</p>
-          <div class="blog-meta">
-            <span class="blog-date">April 2025</span>
-            <a href="#blog" class="blog-read">Read More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          </div>
-        </div>
-      </article>
-
-      <article class="blog-card reveal">
-        <div class="blog-thumb">
-          <img src="images/gaya spa (1).JPG" alt="Gaya Spa treatments guide" loading="lazy">
-        </div>
-        <div class="blog-body">
-          <span class="blog-cat">Wellness</span>
-          <h3 class="blog-title">Inside Gaya Wellness & Spa — Treatments Worth Booking in Advance</h3>
-          <p class="blog-excerpt">From traditional Thai massage to couples' aromatherapy suites, our spa team shares which treatments guests keep coming back for — and why to book early.</p>
-          <div class="blog-meta">
-            <span class="blog-date">March 2025</span>
-            <a href="#blog" class="blog-read">Read More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          </div>
-        </div>
-      </article>
-
-      <article class="blog-card reveal">
-        <div class="blog-thumb">
-          <img src="images/lobby (1).JPG" alt="Day trips from Patong" loading="lazy">
-        </div>
-        <div class="blog-body">
-          <span class="blog-cat">Experiences</span>
-          <h3 class="blog-title">5 Day Trips from Patong That Most Tourists Miss</h3>
-          <p class="blog-excerpt">Phi Phi is famous — but Phuket hides quieter gems. Our concierge team reveals the islands, temples, and markets that make the biggest impression.</p>
-          <div class="blog-meta">
-            <span class="blog-date">February 2025</span>
-            <a href="#blog" class="blog-read">Read More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          </div>
-        </div>
-      </article>
-
-    </div>
+    <div class="blog-grid" id="blog-grid"></div>
   </div>
 </section>
 
@@ -813,6 +766,7 @@ footer{background:var(--charcoal);padding:70px 0 32px}
           <li><a href="https://www.elitesuitespatong.com/gayaspa">Gaya Wellness Spa</a></li>
           <li><a href="https://www.elitesuitespatong.com/attraction">Attractions</a></li>
           <li><a href="https://www.elitesuitespatong.com/gallery">Gallery</a></li>
+          <li><a href="#blog">Blog</a></li>
         </ul>
       </div>
       <div>
@@ -1400,6 +1354,31 @@ function claimPerk(){
   document.getElementById('success-code').textContent=code;
   console.log('Lead:',{email,perk,code});
 }
+</script>
+<script src="blog-posts.js"></script>
+<script>
+// ── BLOG CARD RENDERER ────────────────────────────────────────────────────────
+(function(){
+  const grid = document.getElementById('blog-grid');
+  if(!grid || typeof BLOG_POSTS === 'undefined') return;
+  const arrow = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>`;
+  grid.innerHTML = BLOG_POSTS.slice(0,3).map(p => `
+    <article class="blog-card reveal">
+      <div class="blog-thumb">
+        <img src="${p.img}" alt="${p.title}" loading="lazy">
+      </div>
+      <div class="blog-body">
+        <span class="blog-cat">${p.cat}</span>
+        <h3 class="blog-title">${p.title}</h3>
+        <p class="blog-excerpt">${p.excerpt}</p>
+        <div class="blog-meta">
+          <span class="blog-date">${p.date}</span>
+          <a href="blog-post.html?slug=${p.slug}" class="blog-read">Read More ${arrow}</a>
+        </div>
+      </div>
+    </article>
+  `).join('');
+})();
 </script>
 </body>
 </html>
