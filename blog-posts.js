@@ -7,7 +7,7 @@
 //   3. Save. The card appears on the homepage and the full post is at:
 //      blog-post.html?slug=your-slug
 // ─────────────────────────────────────────────────────────────────────────────
-onst BLOG_POSTS = [
+const BLOG_POSTS = [
     {
     slug: 'about-us',          // e.g. 'coral-restaurant-menu'
     cat: 'Hospitality',                // e.g. 'Dining', 'Travel Tips', 'Wellness'
