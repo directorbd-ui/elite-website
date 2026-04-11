@@ -269,6 +269,24 @@ section{padding:100px 0}
 .loc-item a{color:var(--wood-dark)}
 .loc-item a:hover{text-decoration:underline}
 
+/* ── BLOG ── */
+.blog-section{background:var(--ivory);padding:100px 0}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:60px}
+.blog-card{background:var(--white);border:1px solid var(--rule);display:flex;flex-direction:column;transition:box-shadow var(--transition)}
+.blog-card:hover{box-shadow:var(--shadow-md)}
+.blog-thumb{aspect-ratio:16/9;overflow:hidden;background:var(--beige-mid)}
+.blog-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.25,.46,.45,.94)}
+.blog-card:hover .blog-thumb img{transform:scale(1.06)}
+.blog-body{padding:28px;display:flex;flex-direction:column;flex:1}
+.blog-cat{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--wood);font-weight:600;font-family:'Montserrat',sans-serif;margin-bottom:10px}
+.blog-title{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:400;color:var(--charcoal);line-height:1.35;margin-bottom:12px}
+.blog-excerpt{font-size:.82rem;color:var(--muted);line-height:1.8;flex:1;margin-bottom:22px}
+.blog-meta{display:flex;align-items:center;justify-content:space-between;padding-top:18px;border-top:1px solid var(--rule)}
+.blog-date{font-size:.72rem;color:var(--beige-deep);letter-spacing:.06em}
+.blog-read{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--wood);font-weight:500;display:flex;align-items:center;gap:6px;text-decoration:none;transition:color .3s}
+.blog-read:hover{color:var(--wood-dark)}
+@media(max-width:900px){.blog-grid{grid-template-columns:1fr}}
+
 /* ── EXIT POPUP ── */
 #exit-overlay{position:fixed;inset:0;background:rgba(26,18,10,.88);z-index:9999;display:none;align-items:flex-start;justify-content:center;padding:20px;backdrop-filter:blur(6px);overflow-y:auto}
 #exit-overlay.open{display:flex;animation:fadeIn .35s ease}
@@ -376,6 +394,7 @@ footer{background:var(--charcoal);padding:70px 0 32px}
       <li><a href="#about" onclick="closeMenu()">About</a></li>
       <li><a href="#location" onclick="closeMenu()">Location</a></li>
       <li><a href="https://www.elitesuitespatong.com/gayaspa" onclick="closeMenu()">Gaya Spa</a></li>
+      <li><a href="#blog" onclick="closeMenu()">Blog</a></li>
       <li><a href="https://hotels.cloudbeds.com/reservation/q4GFCr" target="_blank" class="nav-cta" onclick="closeMenu()">Book Direct</a></li>
     </ul>
   </div>
@@ -712,6 +731,64 @@ footer{background:var(--charcoal);padding:70px 0 32px}
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="blog-section" id="blog">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="rule-center"><span class="label">Phuket Insider Guide</span></div>
+      <h2>Stories & <em>Tips</em></h2>
+    </div>
+    <div class="blog-grid">
+
+      <article class="blog-card reveal">
+        <div class="blog-thumb">
+          <img src="images/pool (1).JPG" alt="Best time to visit Patong Beach" loading="lazy">
+        </div>
+        <div class="blog-body">
+          <span class="blog-cat">Travel Tips</span>
+          <h3 class="blog-title">Best Time to Visit Patong Beach — A Month-by-Month Guide</h3>
+          <p class="blog-excerpt">Phuket's weather shapes every stay. We break down high season, green season, and the sweet spots in between so you can plan the perfect trip.</p>
+          <div class="blog-meta">
+            <span class="blog-date">April 2025</span>
+            <a href="#blog" class="blog-read">Read More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="blog-card reveal">
+        <div class="blog-thumb">
+          <img src="images/gaya spa (1).JPG" alt="Gaya Spa treatments guide" loading="lazy">
+        </div>
+        <div class="blog-body">
+          <span class="blog-cat">Wellness</span>
+          <h3 class="blog-title">Inside Gaya Wellness & Spa — Treatments Worth Booking in Advance</h3>
+          <p class="blog-excerpt">From traditional Thai massage to couples' aromatherapy suites, our spa team shares which treatments guests keep coming back for — and why to book early.</p>
+          <div class="blog-meta">
+            <span class="blog-date">March 2025</span>
+            <a href="#blog" class="blog-read">Read More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="blog-card reveal">
+        <div class="blog-thumb">
+          <img src="images/lobby (1).JPG" alt="Day trips from Patong" loading="lazy">
+        </div>
+        <div class="blog-body">
+          <span class="blog-cat">Experiences</span>
+          <h3 class="blog-title">5 Day Trips from Patong That Most Tourists Miss</h3>
+          <p class="blog-excerpt">Phi Phi is famous — but Phuket hides quieter gems. Our concierge team reveals the islands, temples, and markets that make the biggest impression.</p>
+          <div class="blog-meta">
+            <span class="blog-date">February 2025</span>
+            <a href="#blog" class="blog-read">Read More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
