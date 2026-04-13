@@ -14,10 +14,12 @@ app.use(cors({ origin: '*' })); // tighten to your domain once live
 //   3. Choose "Mail" + "Other (custom name)" → generate → copy the 16-char password
 //   4. Set it as the GMAIL_APP_PASSWORD environment variable in Render
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true,
   auth: {
-    user: process.env.GMAIL_USER,      // reservations@elitesuitespatong.com
-    pass: process.env.GMAIL_APP_PASSWORD  // 16-character App Password from Google
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_APP_PASSWORD
   }
 });
 
@@ -151,13 +153,16 @@ app.post('/send-promo', async (req, res) => {
     `
   };
 
-  try {
-    await transporter.sendMail(mailOptions);
-    res.json({ success: true });
-  } catch (err) {
-    console.error('Mail error:', err.message);
-    res.status(500).json({ error: 'Failed to send email' });
-  }
+    try {
+      await transporter.sendMail(mailOptions);
+      console.log(`Email sent to ${email} — perk: ${perk}`);
+      res.json({ success: true });
+    } catch (err) {
+      console.error('Mail error code:', err.code);
+      console.error('Mail error response:', err.response);
+      console.error('Mail error message:', err.message);
+      res.status(500).json({ error: err.message });
+    }
 });
 
 // ── HEALTH CHECK ──────────────────────────────────────────────────────────────
