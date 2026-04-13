@@ -7,9 +7,23 @@
 //   3. Save. The card appears on the homepage and the full post is at:
 //      blog-post.html?slug=your-slug
 // ─────────────────────────────────────────────────────────────────────────────
-
 const BLOG_POSTS = [
-
+    {
+    slug: 'about-us',          // e.g. 'coral-restaurant-menu'
+    cat: 'Hospitality',                // e.g. 'Dining', 'Travel Tips', 'Wellness'
+    title: 'Where Impeccable Cleanliness Meets Heartfelt Thai Hospitality',
+    excerpt: 'Nestled in the vibrant heart of Patong, the Elite Hotel offers a sanctuary of comfort and convenience that consistently exceeds guest expectations. ',
+    date: 'May 2025',
+    img: 'images/lobby (1).JPG',  // any image already in the images folder
+    content: `
+      <p>Our unwavering commitment to excellence is reflected in the glowing feedback from our valued visitors, who frequently highlight the pillars of our success: exceptional cleanliness, spacious accommodations, and genuinely warm service.
+</p>
+      <p>Step into any of our well-appointed rooms, and you'll immediately notice the hallmark of a truly relaxing stay: impeccable cleanliness. Our dedicated housekeeping team ensures every corner sparkles, providing a fresh, hygienic, and welcoming environment. Guests consistently praise our clean and spacious rooms, noting they are perfect for families or travelers seeking ample room to unwind. The meticulous attention to detail in maintaining our beautiful hotel, from the luxurious furniture to the common areas, creates a sense of serene well-being from the moment you arrive.</p>
+      <p>What truly sets the Elite Hotel apart, however, is the heartfelt hospitality of our staff. Our team is renowned for being incredibly friendly, helpful, and always ready with a warm smile. From the polite and professional front desk to the diligent housekeeping, every interaction is infused with a spirit of warm hospitality and professionalism. We believe in creating not just a stay, but a pleasant and relaxing experience, where our staff's kind and respectful attitude makes every guest feel genuinely cared for and valued.</p>
+      <p>Our prime location further enhances your Patong adventure. Situated in a perfect, quiet location, we are just a short, leisurely 5 to 10-minute walk from the world-famous Patong Beach and the electrifying Bangla Road. This brilliant location offers great access to everything—from shopping malls like JungCeylon and Arab Street to a fantastic selection of restaurants, street vendors, and Indian or halal food options. With a 7/11 and all essential services within easy walking distance, you enjoy the epicenter of Patong's excitement while retreating to a quiet and comfortable hotel each night.</p>
+      <p>Whether you're seeking a family-friendly resort with a beautiful restaurant and a distinctive swimming pool, or a beautifully economical base for exploring Phuket, the Elite Hotel delivers. We combine very good and affordable accommodations with outstanding service, ensuring a wonderful stay that is both comfortable and convenient. For your next visit to Patong Beach, discover the hotel where cleanliness is 100%, the rooms are spacious, and the staff's warm hospitality makes all the difference.</p>
+    `
+  },
   {
     slug: 'best-time-visit-patong',
     cat: 'Travel Tips',

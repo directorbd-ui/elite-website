@@ -154,15 +154,15 @@ app.post('/send-promo', async (req, res) => {
   };
 
   try {
-    await transporter.sendMail(mailOptions);
-    console.log(`Email sent to ${email} — perk: ${perk}`);
-    res.json({ success: true });
-  } catch (err) {
-    console.error('Mail error code:', err.code);
-    console.error('Mail error response:', err.response);
-    console.error('Mail error message:', err.message);
-    res.status(500).json({ error: err.message });
-  }
+      await transporter.sendMail(mailOptions);
+      console.log(`Email sent to ${email} — perk: ${perk}`);
+      res.json({ success: true });
+    } catch (err) {
+      console.error('Mail error code:', err.code);
+      console.error('Mail error response:', err.response);
+      console.error('Mail error message:', err.message);
+      res.status(500).json({ error: err.message });
+    }
 });
 
 // ── HEALTH CHECK ──────────────────────────────────────────────────────────────
