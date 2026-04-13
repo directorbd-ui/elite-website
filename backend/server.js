@@ -153,7 +153,7 @@ app.post('/send-promo', async (req, res) => {
     `
   };
 
-    try {
+  try {
       await transporter.sendMail(mailOptions);
       console.log(`Email sent to ${email} — perk: ${perk}`);
       res.json({ success: true });
