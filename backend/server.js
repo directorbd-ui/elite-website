@@ -1,27 +1,12 @@
-const express  = require('express');
-const nodemailer = require('nodemailer');
-const cors      = require('cors');
+const express = require('express');
+const cors    = require('cors');
+const { Resend } = require('resend');
 
-const app = express();
+const app    = express();
+const resend = new Resend(process.env.RESEND_API_KEY);
+
 app.use(express.json());
-app.use(cors({ origin: '*' })); // tighten to your domain once live
-
-// ── GMAIL TRANSPORTER ────────────────────────────────────────────────────────
-// Uses an App Password — NOT your normal Gmail password.
-// How to get one:
-//   1. Go to myaccount.google.com → Security → 2-Step Verification (enable if not on)
-//   2. Then go to myaccount.google.com → Security → App Passwords
-//   3. Choose "Mail" + "Other (custom name)" → generate → copy the 16-char password
-//   4. Set it as the GMAIL_APP_PASSWORD environment variable in Render
-const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: true,
-  auth: {
-    user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_APP_PASSWORD
-  }
-});
+app.use(cors({ origin: '*' }));
 
 // ── OFFER DETAILS ─────────────────────────────────────────────────────────────
 const PERKS = {
@@ -60,11 +45,7 @@ app.post('/send-promo', async (req, res) => {
 
   const offer = PERKS[perk];
 
-  const mailOptions = {
-    from: `"Elite Suites Patong" <${process.env.GMAIL_USER}>`,
-    to: email,
-    subject: `Your Exclusive Promo Code — Elite Suites Patong`,
-    html: `
+  const emailHtml = `
 <!DOCTYPE html>
 <html>
 <head>
@@ -150,17 +131,23 @@ app.post('/send-promo', async (req, res) => {
   </table>
 </body>
 </html>
-    `
-  };
+    `;
 
   try {
-    await transporter.sendMail(mailOptions);
+    const { error } = await resend.emails.send({
+      from: 'Elite Suites Patong <director.bd@elitesuitespatong.com>',
+      to:   email,
+      subject: 'Your Exclusive Promo Code — Elite Suites Patong',
+      html:  emailHtml
+    });
+    if(error) {
+      console.error('Resend error:', error);
+      return res.status(500).json({ error: error.message });
+    }
     console.log(`Email sent to ${email} — perk: ${perk}`);
     res.json({ success: true });
   } catch (err) {
-    console.error('Mail error code:', err.code);
-    console.error('Mail error response:', err.response);
-    console.error('Mail error message:', err.message);
+    console.error('Send error:', err.message);
     res.status(500).json({ error: err.message });
   }
 });
